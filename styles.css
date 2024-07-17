@@ -1,0 +1,161 @@
+/* styles.css */
+body {
+    background-color: #e0e0e0;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    background-color: #e0e0e0;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px -6px #222;
+}
+
+.page-title {
+    font-family: 'Brush Script MT', cursive;
+    font-size: 48px;
+    margin: 0;
+    color: #333;
+}
+
+.navbar {
+    margin-top: 10px;
+}
+
+.navbar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    text-decoration: none;
+    font-size: 24px; /* 修改字体大小 */
+    color: #666; /* 深灰色 */
+    transition: color 0.3s ease, border-bottom 0.3s ease, text-shadow 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #000;
+    border-bottom: 2px solid #000;
+}
+
+.navbar a.active {
+    color: #000;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+    border-bottom: 2px solid #000;
+}
+
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.title {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.intro {
+    font-size: 18px;
+    color: #555;
+    margin: 20px auto;
+    max-width: 600px;
+    line-height: 1.5;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.neumorphic-btn {
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.neumorphic-btn:hover {
+    box-shadow: 5px 5px 15px #bebebe, -5px -5px 15px #ffffff;
+}
+
+.neumorphic-btn:active {
+    box-shadow: inset 5px 5px 10px #bebebe, inset -5px -5px 10px #ffffff;
+}
+
+.neumorphic-card {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px #bebebe, -5px -5px 10px #ffffff;
+    padding: 20px;
+    margin-top: 20px;
+    width: 300px;
+    margin: 20px auto;
+    transition: all 0.3s ease;
+}
+
+.neumorphic-card:hover {
+    box-shadow: 5px 5px 10px #b0b0b0, -5px -5px 10px #ffffff;
+}
+
+/* 花朵特效 */
+.flower {
+    position: absolute;
+    pointer-events: none;
+    filter: drop-shadow(0 0 15px rgba(0, 0, 0, 0.5));
+    animation: fadeInOut 2s linear infinite;
+  }
+  
+  .flower:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url('flower.png') no-repeat center center;
+    background-size: contain;
+    animation: move 2s linear infinite;
+  }
+  
+  @keyframes move {
+    0% {
+      transform: translate(0) rotate(0deg);
+    }
+    100% {
+      transform: translate(150px) rotate(360deg);
+    }
+  }
+  
+  @keyframes fadeInOut {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    20%,
+    80% {
+      opacity: 1;
+    }
+  }
