@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artcode Canvas</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="bubbly_button.css"> <!-- 引入Bubbly Button的CSS文件 -->
 </head>
 <body>
     <header>
@@ -17,14 +18,24 @@
             </ul>
         </nav>
     </header>
-    <div class="container">
-        <h1 class="title">欢迎来到Artcode Canvas！😀</h1>
-        <p class="intro">这是一个旨在向所有人展示编程中的艺术之美的项目，你可以在这里欣赏到炫酷的艺术效果和有趣的项目，并且轻松上手参与进这些美的创作之中。希望你玩得开心！</p>
-        <div class="button-container">
-            <a href="algorithms.html" class="neumorphic-btn">算法艺术</a>
-            <a href="projects.html" class="neumorphic-btn">实战项目</a>
+
+    <div class="index-container">
+        <div class="intro">
+            <p class="title">欢迎来到Artcode Canvas！😀</p>
+            这是一个旨在向所有人展示编程中的艺术之美的项目，你可以在这里欣赏到炫酷的艺术效果和有趣的项目，并且轻松上手参与进这些美的创作之中。希望你玩得开心！
+        </div>
+        <div class="card-container" onclick="window.location.href='algorithms.html'">
+            <div class="card">
+                <img src="gif1.gif" alt="算法艺术">
+                <button class="bubbly-button" onclick="window.location.href='algorithms.html'">算法艺术</button>
+            </div>
+            <div class="card" onclick="window.location.href='projects.html'">
+                <img src="gif2.gif" alt="实战项目">
+                <button class="bubbly-button" onclick="window.location.href='projects.html'">实战项目</button>
+            </div>
         </div>
     </div>
+</canvas>
     <script src="script.js"></script>
     <script src="flowers.js"></script>
 </body>
