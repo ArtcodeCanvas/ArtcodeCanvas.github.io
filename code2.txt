@@ -1,0 +1,49 @@
+var canvas = document.getElementById('myCanvas'); // 🎨 获取页面上的画布元素，让我们开始创作吧！
+var ctx = canvas.getContext('2d'); // ✏️ 获取2D绘图环境，准备好画笔咯！
+ctx.clearRect(0, 0, 500, 500); // 🧼 清除画布上的内容，为新绘制的图形腾出空间
+
+ctx.strokeStyle = "blue"; // 💙 设置线条颜色为蓝色，你可以尝试改成其他颜色哦！
+ctx.lineWidth = 3; // 🖋️ 设置线条宽度为3，试试改成更大或更小看看效果！
+
+var maxdepth = 0; // 📊 记录最大递归深度
+var curdepth = 0; // 📉 当前递归深度
+
+function drawH(x, y, length, height) {
+    curdepth++; // 📈 递归深度增加
+    ctx.beginPath(); // 🚀 开始绘制路径，准备起飞！
+    ctx.moveTo(x - length / 2, y); // 📍 绘制横线起点
+    ctx.lineTo(x + length / 2, y); // 🖌️ 绘制横线终点
+    ctx.moveTo(x - length / 2, y - height / 2); // 📍 绘制左侧竖线起点
+    ctx.lineTo(x - length / 2, y + height / 2); // 🖌️ 绘制左侧竖线终点
+    ctx.moveTo(x + length / 2, y - height / 2); // 📍 绘制右侧竖线起点
+    ctx.lineTo(x + length / 2, y + height / 2); // 🖌️ 绘制右侧竖线终点
+    ctx.stroke(); // ✨ 完成当前层级的绘制
+
+    // 🌟 递归绘制下一层级的H
+    if (curdepth <= maxdepth) {
+        drawH(x - length / 2, y - height / 2, length * 0.5, height * 0.5); // 左上
+        drawH(x - length / 2, y + height / 2, length * 0.5, height * 0.5); // 左下
+        drawH(x + length / 2, y - height / 2, length * 0.5, height * 0.5); // 右上
+        drawH(x + length / 2, y + height / 2, length * 0.5, height * 0.5); // 右下
+    }
+    curdepth--; // 📉 递归深度减少
+}
+
+function go() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // 🧼 每次绘制前清除画布
+    drawH(250, 250, 240, 180); // 🖼️ 从中心点开始绘制H
+    maxdepth++; // 📊 增加最大递归深度
+    curdepth = 0; // 📉 重置当前递归深度
+    if (maxdepth > 4) { // 🔄 如果递归深度超过4，重置为0，重新开始
+        maxdepth = 0;
+    }
+}
+
+// ⏲️ 每隔1500毫秒（1.5秒）调用一次go函数，看看会有什么样的效果吧！你也可以修改这个间隔时间试试哦！
+window.setInterval('go()', 1500);
+
+// 🌟 提示：
+// 1. 你可以修改 ctx.strokeStyle 的颜色，试试看不同颜色的效果！💙❤️💚
+// 2. 尝试修改 ctx.lineWidth 的值，看看线条变粗或变细的效果！🖋️
+// 3. 改变 maxdepth 的最大值，观察递归深度的变化！📊
+// 4. 调整 setInterval 的时间间隔，体验绘制速度的变化！⏲️

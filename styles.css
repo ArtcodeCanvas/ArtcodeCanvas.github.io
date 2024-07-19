@@ -19,7 +19,7 @@ header {
     width: 100%;
     background-color: #191919;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
     box-shadow: 0 4px 6px -6px #222;
     position: absolute;
     top: 0;
@@ -44,7 +44,6 @@ header {
     padding: 0;
     display: flex;
     justify-content: center;
-    z-index: 10; /* 确保导航栏在canvas上方 */
 }
 
 .navbar li {
@@ -56,7 +55,6 @@ header {
     font-size: 24px;
     color: #a6a6a6;
     transition: color 0.3s ease, border-bottom 0.3s ease, text-shadow 0.3s ease;
-    z-index: 10; /* 确保链接在canvas上方 */
 }
 
 .navbar a:hover {
@@ -94,10 +92,43 @@ header {
     font-size: 24px;
 }
 
+.colorselector {  
+    position: fixed;  
+    color: #ffffff;
+    top: 10%; 
+    left: 80%;  
+    z-index: 10; 
+}  
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    border-bottom: 1px dotted rgb(229, 229, 229); /* 悬停元素上显示点线 */
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    font-size: 16px;
+    background-color: rgb(137, 137, 137);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+ 
+/* 鼠标移动上去后显示提示框 */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
 .card-container {
     display: flex;
     justify-content: center;
-    gap: 50px;
+    gap: 40px;
     margin-top: 10px;
 }
 
@@ -191,7 +222,7 @@ button {
 
 /* 独特的样式用于 algorithms.html */
 .style-selector {
-    margin-top: 180px; /* 调整顶部间距 */
+    margin-top: 160px; /* 调整顶部间距 */
     text-align: center;
 }
 
@@ -252,3 +283,40 @@ button {
     box-shadow: 0 8px 8px rgba(122, 246, 255, 0.679);
     font-weight: bold;
 }
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* 将按钮靠右 */
+    align-items: center;
+    gap: 50px; /* 增加按钮之间的间隔 */
+    margin-top: 10px;
+    width: 100%; /* 占满整个编辑器的宽度 */
+}
+
+/* 其他现有样式保持不变 */
+
+/* 特殊样式用于 '运行' 按钮 */
+/* 其他现有样式保持不变 */
+
+/* 特殊样式用于 '运行' 按钮 */
+/* 其他现有样式保持不变 */
+
+/* 特殊样式用于 '运行' 按钮 */
+.run-button {
+    background-color: #53535d !important; /* 悬浮状态为蓝色 */
+    color: #ffffff !important; /* 悬浮状态的文字颜色 */
+}
+
+
+.tips {
+    color: white;
+    font-size: 14px;
+    text-align: left; /* 居中对齐 */
+    position: absolute;
+    bottom: 0px; /* 靠近底部 */
+    left: 75%;
+    transform: translateX(-50%);
+    width: 50%; /* 占满整个页面宽度 */
+}
+
+
