@@ -90,6 +90,7 @@ header {
     margin-bottom: 30px;
     color: white;
     font-size: 24px;
+    width: 80%;
 }
 
 .colorselector {  
@@ -293,15 +294,6 @@ button {
     width: 100%; /* 占满整个编辑器的宽度 */
 }
 
-/* 其他现有样式保持不变 */
-
-/* 特殊样式用于 '运行' 按钮 */
-/* 其他现有样式保持不变 */
-
-/* 特殊样式用于 '运行' 按钮 */
-/* 其他现有样式保持不变 */
-
-/* 特殊样式用于 '运行' 按钮 */
 .run-button {
     background-color: #53535d !important; /* 悬浮状态为蓝色 */
     color: #ffffff !important; /* 悬浮状态的文字颜色 */
@@ -313,7 +305,7 @@ button {
     font-size: 14px;
     text-align: left; /* 居中对齐 */
     position: absolute;
-    bottom: 0px; /* 靠近底部 */
+    bottom: 5px; /* 靠近底部 */
     left: 75%;
     transform: translateX(-50%);
     width: 50%; /* 占满整个页面宽度 */

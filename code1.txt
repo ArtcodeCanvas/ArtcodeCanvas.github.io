@@ -2,7 +2,8 @@ var canvas = document.getElementById('myCanvas'); // 🎨 获取页面上的画�
 var ctx = canvas.getContext('2d'); // ✏️ 获取2D绘图环境，准备好画笔咯！
 // 在数组中添加或修改你喜欢的颜色，你可以点击上方的“颜色选择器”查找颜色对应的代码🤩
 // 例如'#6bfae1'，注意颜色代码需要被包括在引号中🧐
-var colors = ['#6bfae1', '#63b9e9', 'red', 'yellow', 'blue', 'green']; // 🌈 修改这些颜色试试看，会有惊喜哦！
+var colors = ['#6bfae1', '#63b9e9', 'red', 'yellow', 'blue', 'green']; 
+// 🌈 修改这些颜色试试看，会有惊喜哦！
 ctx.clearRect(0, 0, 500, 500); // 🧼 清除画布上的内容，为新绘制的图形腾出空间
 
 function go() {

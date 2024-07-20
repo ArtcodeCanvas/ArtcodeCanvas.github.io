@@ -39,13 +39,8 @@
         </div>
         <div class="right">
             <div id="codeEditor" class="ace_editor" style="min-height:400px; width:100%;"></div>
-            <div class="tips">
-                🌟 提示：
-                <ul>
-                    <li>你可以修改 colors 数组中的颜色，来创建你自己的渐变效果！🎨</li>
-                    <li>尝试修改 ctx.lineWidth 的值，看看线条变粗或变细的效果！🖋️</li>
-                    <li>改变 setInterval 的时间间隔，看看绘制的速度有什么变化！⏲️</li>
-                </ul>
+            <div class="tips" id="tips-container">
+                <!-- 提示内容将被动态加载 -->
             </div>
             <div class="button-container">
                 <button class="bubbly-button run-button" onclick="resetCode()">重置</button>
@@ -67,12 +62,22 @@
 
         function loadSelectedCode() {
             const selectedFile = document.getElementById('codeSelector').value;
-            fetch(selectedFile)
+            const codeUrl = `${selectedFile}`;
+            const tipsUrl = `tips${selectedFile.charAt(4)}.txt`; // tips1.txt or tips2.txt
+            
+            fetch(codeUrl)
                 .then(response => response.text())
                 .then(data => {
                     editor.setValue(data, -1);
                 })
                 .catch(error => console.error('Error fetching code file:', error));
+
+            fetch(tipsUrl)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('tips-container').innerText = data;
+                })
+                .catch(error => console.error('Error fetching tips file:', error));
         }
 
         function updateCode() {
@@ -84,12 +89,7 @@
         }
 
         function resetCode() {
-            fetch('code1.txt')
-                .then(response => response.text())
-                .then(data => {
-                    editor.setValue(data, -1);
-                })
-                .catch(error => console.error('Error fetching code file:', error));
+            loadSelectedCode(); // 重置为选定的初始代码和提示
         }
 
         new ewColorPicker("colorselector");
