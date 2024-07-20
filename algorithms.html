@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Algorithms</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="bubbly_button.css">
-    <link rel="stylesheet" href="ew-color-picker.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/bubbly_button.css"> 
+    <link rel="stylesheet" href="color-picker/ew-color-picker.min.css">
 </head>
 <body>
     <header>
@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="index.html">首页</a></li>
                 <li><a href="algorithms.html" class="active">算法艺术</a></li>
-                <li><a href="projects_Sudoku.html">实战项目</a></li>
+                <li><a href="projects/projects_Sudoku.html">实战项目</a></li>
             </ul>
         </nav>
         <div class="colorselector">  
@@ -27,9 +27,9 @@
         <div class="style-selector">  
             <label for="codeSelector">选择样式:</label>  
             <select id="codeSelector">  
-                <option value="code1.txt">渐变线条</option>  
-                <option value="code2.txt">H分形</option>  
-                <option value="code3.txt">code3</option>  
+                <option value="codes/code1.txt">渐变线条</option>  
+                <option value="codes/code2.txt">H分形</option>  
+                <option value="codes/code3.txt">code3</option>  
             </select>  
         </div>  
     </div>
@@ -40,7 +40,6 @@
         <div class="right">
             <div id="codeEditor" class="ace_editor" style="min-height:400px; width:100%;"></div>
             <div class="tips" id="tips-container">
-                <!-- 提示内容将被动态加载 -->
             </div>
             <div class="button-container">
                 <button class="bubbly-button run-button" onclick="resetCode()">重置</button>
@@ -50,8 +49,8 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
-    <script src="script.js"></script>
-    <script src="ew-color-picker.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="color-picker/ew-color-picker.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             initEditor();
@@ -63,7 +62,7 @@
         function loadSelectedCode() {
             const selectedFile = document.getElementById('codeSelector').value;
             const codeUrl = `${selectedFile}`;
-            const tipsUrl = `tips${selectedFile.charAt(4)}.txt`; // tips1.txt or tips2.txt
+            const tipsUrl = `tips/tips${selectedFile.charAt(10)}.txt`; // tips1.txt or tips2.txt
             
             fetch(codeUrl)
                 .then(response => response.text())

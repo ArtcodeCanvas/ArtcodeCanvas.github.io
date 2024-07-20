@@ -1,0 +1,29 @@
+var canvas = document.getElementById('myCanvas'); // 🎨 获取页面上的画布元素，让我们开始创作吧！
+var ctx = canvas.getContext('2d'); // ✏️ 获取2D绘图环境，准备好画笔咯！
+// 在数组中添加或修改你喜欢的颜色，你可以点击上方的“颜色选择器”查找颜色对应的代码🤩
+// 例如'#6bfae1'，注意颜色代码需要被包括在引号中🧐
+var colors = ['#6bfae1', '#63b9e9', 'red', 'yellow', 'blue', 'green']; 
+// 🌈 修改这些颜色试试看，会有惊喜哦！
+ctx.clearRect(0, 0, 500, 500); // 🧼 清除画布上的内容，为新绘制的图形腾出空间
+
+function go() {
+    ctx.beginPath(); // 🚀 开始绘制路径，准备起飞！
+    ctx.moveTo(50, 300); // 📍 将绘图光标移动到初始位置（50, 300）
+    ctx.lineTo(700, 300); // 🖌️ 绘制一条线到位置（700, 300）
+    ctx.lineTo(750, 200); // 🖌️ 再绘制一条线到位置（750, 200）
+    ctx.lineTo(780, 150); // 🖌️ 继续绘制一条线到位置（780, 150）
+    // 🎯 ...你可以继续添加更多的坐标哦，试试其他位置吧！
+
+    var line = ctx.createLinearGradient(50, 300, 780, 150); // 🌟 创建一个线性渐变颜色，从（50, 300）到（780, 150）
+    // 🌈 参数一，偏移量取值范围 0-1
+    // 🎨 参数二，颜色值
+    for (var i = 0; i < colors.length; i++) {
+        line.addColorStop(i / colors.length, colors[i]); // 🖍️ 根据颜色数组中的颜色创建渐变效果
+    }
+    ctx.lineWidth = 8; // 🖋️ 设置线条宽度为8，可以试试改成更大或更小哦！
+    ctx.strokeStyle = line; // 🌈 设置线条的颜色为刚刚创建的渐变颜色
+    ctx.stroke(); // ✨ 开始绘制线条，看，渐变效果是不是很酷？
+}
+
+// ⏲️ 每隔1500毫秒（1.5秒）调用一次go函数，看看会有什么样的效果吧！你也可以修改这个间隔时间试试哦！
+window.setInterval('go()', 1500);

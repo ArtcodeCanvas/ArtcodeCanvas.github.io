@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/bubbly_button.css">
+    <link rel="stylesheet" href="../css/projects.css">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Artcode Canvas</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/algorithms.html">算法艺术</a></li>
+                <li><a href="/projects_Sudoku.html" class="active">实战项目</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container-projects">
+        <div class="project_left">
+            <table id="sudokuBoard">
+                <!-- 9x9 Sudoku board will be generated here by JavaScript -->
+            </table>
+        </div>
+        <div class="project_right">
+            <div id="codeEditor" class="ace_editor" style="min-height:400px; width:100%;"></div>
+            <button class="bubbly-button" onclick="runSudokuSolver()">运行</button>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+    <script src="projects.js"></script>
+</body>
+</html>
