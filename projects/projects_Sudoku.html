@@ -13,22 +13,32 @@
         <h1 class="page-title">Artcode Canvas</h1>
         <nav class="navbar">
             <ul>
-                <li><a href="/index.html">首页</a></li>
-                <li><a href="/algorithms.html">算法艺术</a></li>
-                <li><a href="/projects_Sudoku.html" class="active">实战项目</a></li>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../algorithms.html">算法艺术</a></li>
+                <li><a href="projects_Sudoku.html" class="active">实战项目</a></li>
             </ul>
         </nav>
     </header>
     <div class="container-projects">
         <div class="project_left">
-            <table id="sudokuBoard">
-                <!-- 9x9 Sudoku board will be generated here by JavaScript -->
-            </table>
+            <table id="sudokuBoard"></table>
+            <button class="bubbly-button project-run-button" onclick="runSudokuSolver()">运行</button>
+        </div>
+        <div id="tutorialContent">
+            <h3>〇什么是数独</h3>
+            <p>数独是一种由9乘9的正方形构成的谜题。粗线条将这个9乘9的正方形分成了9个部分，每个部分由3乘3的小9宫格构成。最开始，数独中的有些格子已经填了一些数字，这些数字都在1到9的范围内。另一些格子是空的，玩家需要在这些空格中填上1到9的数字，使得每行、每列和每个小9宫格的数字都不重复。左边展示了一个初始数独的样例。</p>
+            <h3>〇程序如何模拟数独过程</h3>
+            <p>让我们一起思考如何让计算机填写数独。显然，不存在某个公式能够让计算机直接通过已有的数字计算出所有没有填写的数字。想象一下我们是如何填写数独的：我们在填写某一个格子时，会根据其所在的九宫格、行和列中已填写的数字，缩小这个格子可能的数字范围。最理想的情况是这个范围中只有一个数字，那么我们就可以直接填上去。然而，大多数情况下，这个范围包含多个数字，我们需要依次尝试这些数字。</p>
+            <p>对于每一次尝试，我们可以用铅笔在这个格子填上尝试的数字，然后继续用铅笔填写后续的格子。如果发现矛盾，我们就用橡皮擦掉刚才用铅笔填写的数字，开始下一次尝试。计算机的解答过程与我们类似：对于每一个空格，依次尝试所有可能的数字，然后填写下一个空格。如果发现矛盾，就退回上一步，采取另一种填写方式。</p>
+            <h3>〇Have a try！</h3>
+            <p>你可以点击左侧的“运行”键，看看计算机程序是如何实现以上解答数独过程的。观察计算机一步一步尝试不同的数字，逐步解开数独谜题的过程，将会帮助你更好地理解数独的解决方法。如果你在实现程序的过程中遇到了困难，也可以点击右侧按钮查看示例代码。</p>
+            <h3>〇拓展</h3>
+            <p>通过这个程序，你不仅能看到数独的解答过程，还可以学习到回溯算法的实际应用。回溯算法是一种重要的算法思想，常用于解决组合问题、路径问题等。这段数独解答程序将会是你理解回溯算法的一个生动示例。</p>
         </div>
         <div class="project_right">
-            <div id="codeEditor" class="ace_editor" style="min-height:400px; width:100%;"></div>
-            <button class="bubbly-button" onclick="runSudokuSolver()">运行</button>
-        </div>
+            <button class="bubbly-button example-button" onclick="loadExampleCode()">示例代码</button>
+            <div id="codeEditor" class="project_ace_editor" style="min-height:400px; width:100%;"></div>
+        </div>        
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>

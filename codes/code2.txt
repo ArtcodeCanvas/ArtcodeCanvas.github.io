@@ -40,4 +40,4 @@ function go() {
 }
 
 // ⏲️ 每隔1500毫秒（1.5秒）调用一次go函数，看看会有什么样的效果吧！你也可以修改这个间隔时间试试哦！
-window.setInterval('go()', 1500);
+intervalId = window.setInterval('go()', 1500);

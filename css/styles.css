@@ -287,28 +287,28 @@ button {
 
 .button-container {
     display: flex;
-    justify-content: flex-end; /* 将按钮靠右 */
+    justify-content: flex-end;
     align-items: center;
-    gap: 50px; /* 增加按钮之间的间隔 */
-    margin-top: 10px;
-    width: 100%; /* 占满整个编辑器的宽度 */
+    gap: 50px; 
+    bottom: 5vh;
+    width: 100%; 
 }
 
 .run-button {
-    background-color: #53535d !important; /* 悬浮状态为蓝色 */
-    color: #ffffff !important; /* 悬浮状态的文字颜色 */
+    background-color: #53535d !important; 
+    color: #ffffff !important; 
 }
 
 
 .tips {
     color: white;
     font-size: 14px;
-    text-align: left; /* 居中对齐 */
+    text-align: left;
     position: absolute;
-    bottom: 5px; /* 靠近底部 */
-    left: 75%;
+    bottom: 10vh;
+    left: 70%;
     transform: translateX(-50%);
-    width: 50%; /* 占满整个页面宽度 */
+    width: 50%; 
 }
 
 

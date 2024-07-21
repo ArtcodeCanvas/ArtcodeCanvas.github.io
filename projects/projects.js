@@ -22,7 +22,92 @@ function initEditor() {
         enableSnippets: true,
         enableLiveAutocompletion: true
     });
-    const initialCode = `
+    editor.setValue('', -1);
+}
+
+function generateSudokuBoard() {
+    const board = document.getElementById('sudokuBoard');
+    const sampleBoard = [
+        ["4", "7", "3", "6", "5", "9", ".", ".", "2"],
+        ["9", "5", "8", ".", ".", "4", "6", ".", "."],
+        ["6", "2", "1", "3", "8", "7", "5", "9", "4"],
+        ["2", "1", "6", "9", ".", "5", ".", ".", "."],
+        ["8", "9", "4", ".", ".", "2", ".", "6", "5"],
+        ["7", "3", "5", "8", "4", "6", ".", ".", "9"],
+        ["5", ".", "9", ".", ".", "1", ".", ".", "."],
+        ["1", ".", "2", "5", "9", "3", ".", ".", "."],
+        ["3", ".", "7", ".", ".", "8", "9", "5", "1"]
+    ];
+
+    for (let i = 0; i < 9; i++) {
+        const row = document.createElement('tr');
+        for (let j = 0; j < 9; j++) {
+            const cell = document.createElement('td');
+            cell.contentEditable = sampleBoard[i][j] === ".";
+            cell.innerText = sampleBoard[i][j] !== "." ? sampleBoard[i][j] : "";
+            if (sampleBoard[i][j] !== ".") {
+                cell.style.color = 'black'; // 初始化数字为黑色
+            }
+            row.appendChild(cell);
+        }
+        board.appendChild(row);
+    }
+}
+
+// function loadTutorial() {
+//     fetch('tutorial.txt')
+//         .then(response => response.text())
+//         .then(data => {
+//             const contentElement = document.getElementById('tutorialContent');
+//             // 将 '### 标题' 转换为 <h3>标题</h3> 并将段落分隔符转换为 <p> 段落
+//             const htmlContent = data
+//                 .replace(/### (.*?)\n/g, '<h3>$1</h3>') // 将 '### 标题' 转换为 <h3>标题</h3>
+//                 .replace(/(.+?)\n\n/g, '<p>$1</p>'); // 将双换行转换为段落
+//             contentElement.innerHTML = htmlContent;
+//         });
+// }
+
+
+function loadExampleCode() {
+    fetch('solveSudoku.js')
+        .then(response => response.text())
+        .then(data => {
+            editor.setValue(data, -1);
+        });
+}
+
+function runSudokuSolver() {
+    const board = getBoardValues();
+    solveSudoku(board).then(() => setBoardValues(board));
+}
+
+function getBoardValues() {
+    const board = [];
+    const rows = document.getElementById('sudokuBoard').getElementsByTagName('tr');
+    for (let i = 0; i < rows.length; i++) {
+        const row = [];
+        const cells = rows[i].getElementsByTagName('td');
+        for (let j = 0; j < cells.length; j++) {
+            row.push(cells[j].innerText || '.');
+        }
+        board.push(row);
+    }
+    return board;
+}
+
+function setBoardValues(board) {
+    const rows = document.getElementById('sudokuBoard').getElementsByTagName('tr');
+    for (let i = 0; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        for (let j = 0; j < cells.length; j++) {
+            if (board[i][j] !== '.' && cells[j].innerText === '') {
+                cells[j].style.color = 'purple'; // 设置确定的数字为紫色
+            }
+            cells[j].innerText = board[i][j] === '.' ? '' : board[i][j];
+        }
+    }
+}
+
 var solveSudoku = async function(board) {
     async function isValid(row, col, val, board) {
         let len = board.length;
@@ -64,13 +149,13 @@ var solveSudoku = async function(board) {
                     if (currentCell) currentCell.style.backgroundColor = ''; // 清除之前高亮的格子
                     currentCell = document.getElementById('sudokuBoard').rows[i].cells[j];
                     currentCell.style.backgroundColor = 'yellow';
-                    await highlightCell(i, j, 'yellow', \`\${val}\`, 'grey');
+                    await highlightCell(i, j, 'yellow', `${val}`, 'grey');
                     
-                    if (await isValid(i, j, \`\${val}\`, board)) {
-                        board[i][j] = \`\${val}\`;
-                        await highlightCell(i, j, 'yellow', \`\${val}\`, 'blue');
+                    if (await isValid(i, j, `${val}`, board)) {
+                        board[i][j] = `${val}`;
+                        await highlightCell(i, j, 'yellow', `${val}`, 'blue');
                         if (await backTracking()) {
-                            await highlightCell(i, j, 'yellow', \`\${val}\`, 'purple');
+                            await highlightCell(i, j, 'yellow', `${val}`, 'purple');
                             return true;
                         }
                         board[i][j] = '.';
@@ -97,69 +182,4 @@ async function highlightCell(row, col, color, content = null, textColor = 'grey'
         cell.style.color = textColor;
     }
     await new Promise(resolve => setTimeout(resolve, delay));
-}
-`;
-    editor.setValue(initialCode, -1);
-}
-
-function generateSudokuBoard() {
-    const board = document.getElementById('sudokuBoard');
-    const sampleBoard = [
-        ["4", "7", "3", "6", "5", "9", ".", ".", "2"],
-        ["9", "5", "8", ".", ".", "4", "6", ".", "."],
-        ["6", "2", "1", "3", "8", "7", "5", "9", "4"],
-        ["2", "1", "6", "9", ".", "5", ".", ".", "."],
-        ["8", "9", "4", ".", ".", "2", ".", "6", "5"],
-        ["7", "3", "5", "8", "4", "6", ".", ".", "9"],
-        ["5", ".", "9", ".", ".", "1", ".", ".", "."],
-        ["1", ".", "2", "5", "9", "3", ".", ".", "."],
-        ["3", ".", "7", ".", ".", "8", "9", "5", "1"]
-    ];
-
-    for (let i = 0; i < 9; i++) {
-        const row = document.createElement('tr');
-        for (let j = 0; j < 9; j++) {
-            const cell = document.createElement('td');
-            cell.contentEditable = sampleBoard[i][j] === ".";
-            cell.innerText = sampleBoard[i][j] !== "." ? sampleBoard[i][j] : "";
-            if (sampleBoard[i][j] !== ".") {
-                cell.style.color = 'black'; // 初始化数字为黑色
-            }
-            row.appendChild(cell);
-        }
-        board.appendChild(row);
-    }
-}
-
-function runSudokuSolver() {
-    const board = getBoardValues();
-    const solveSudoku = new Function(editor.getValue() + ' return solveSudoku;')();
-    solveSudoku(board).then(() => setBoardValues(board));
-}
-
-function getBoardValues() {
-    const board = [];
-    const rows = document.getElementById('sudokuBoard').getElementsByTagName('tr');
-    for (let i = 0; i < rows.length; i++) {
-        const row = [];
-        const cells = rows[i].getElementsByTagName('td');
-        for (let j = 0; j < cells.length; j++) {
-            row.push(cells[j].innerText || '.');
-        }
-        board.push(row);
-    }
-    return board;
-}
-
-function setBoardValues(board) {
-    const rows = document.getElementById('sudokuBoard').getElementsByTagName('tr');
-    for (let i = 0; i < rows.length; i++) {
-        const cells = rows[i].getElementsByTagName('td');
-        for (let j = 0; j < cells.length; j++) {
-            if (board[i][j] !== '.') {
-                cells[j].innerText = board[i][j];
-                cells[j].style.color = 'purple'; // 最终确定的数字颜色为紫色
-            }
-        }
-    }
 }

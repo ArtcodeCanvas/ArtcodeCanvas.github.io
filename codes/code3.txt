@@ -1,0 +1,55 @@
+var canvas = document.getElementById("myCanvas"); // 🎨 获取页面上的画布元素，让我们开始创作吧！
+var ctx = canvas.getContext("2d"); // ✏️ 获取2D绘图环境，准备好画笔咯！
+ctx.clearRect(0, 0, 500, 500); // 🧼 清除画布上的内容，为新绘制的图形腾出空间
+
+var image = new Image(); // 🖼️ 创建一个新的图像对象
+image.src = '../resources/star.png'; // 🌟 设置图像源路径为星星图片的路径
+
+var pixels = []; // 🖌️ 创建一个数组来存储像素数据
+var imageData; // 📸 用于存储图像的像素数据
+
+image.onload = function() {
+    // 🖌️ 当图像加载完成时执行
+    ctx.drawImage(image, 200, 100, 200, 200); // 🌟 在画布上绘制图像（位置：x=200, y=100，尺寸：200x200）
+    imageData = ctx.getImageData(200, 100, 200, 200); // 📸 获取图像的像素数据
+    getPixels(); // 🌈 获取所有像素信息
+    drawPic(); // 🎨 绘制图像
+};
+
+function getPixels() {
+    var pos = 0;
+    var data = imageData.data; // 🖼️ RGBA的一维数组数据
+
+    // 📏 源图像的高度和宽度为200px
+    for (var i = 1; i <= 200; i++) {
+        for (var j = 1; j <= 200; j++) {
+            pos = [(i - 1) * 200 + (j - 1)] * 4; // 📍 计算像素位置
+
+            if (data[pos] >= 0) { // 🌟 只处理有效像素
+                var pixel = {
+                    x: 200 + j + Math.random() * 20, // 🎯 重新设置每个像素的位置信息，加上随机偏移
+                    y: 100 + i + Math.random() * 20, // 🎯 重新设置每个像素的位置信息，加上随机偏移
+                    fillStyle: 'rgba(' + data[pos] + ',' + (data[pos + 1]) + ',' + (data[pos + 2]) + ',' + (data[pos + 3]) + ')' // 🎨 设置像素颜色
+                };
+                pixels.push(pixel); // 🗂️ 将像素对象添加到数组中
+            }
+        }
+    }
+}
+
+function drawPic() {
+    // var canvas = document.getElementById("myCanvas"); // 🎨 再次获取画布元素
+    // var ctx = canvas.getContext("2d"); // ✏️ 获取2D绘图环境
+    clearInterval();
+    ctx.clearRect(0, 0, 500, 500); // 🧼 清除画布上的内容，为新绘制的图形腾出空间
+
+    var len = pixels.length; // 🌟 获取像素数据的长度
+    var curr_pixel = null;
+
+    for (var i = 0; i < len; i++) {
+        curr_pixel = pixels[i]; // 📍 获取当前像素
+        
+        ctx.fillStyle = curr_pixel.fillStyle; // 🎨 设置像素颜色
+        ctx.fillRect(curr_pixel.x, curr_pixel.y, 1, 1); // 🖌️ 绘制像素（一个小矩形）
+    }
+}

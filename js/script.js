@@ -1,11 +1,12 @@
+let editor;
+var intervalId;
+
 document.addEventListener('DOMContentLoaded', (event) => {
     initEditor();
     loadSelectedCode();
 
     document.getElementById('codeSelector').addEventListener('change', loadSelectedCode);
 });
-
-let editor;
 
 function initEditor() {
     editor = ace.edit("codeEditor");
@@ -26,12 +27,32 @@ function initEditor() {
 
 function loadSelectedCode() {
     const selectedFile = document.getElementById('codeSelector').value;
-    fetch(selectedFile)
+    const codeUrl = `${selectedFile}`;
+    const tipsUrl = `tips/tips${selectedFile.charAt(10)}.txt`; // tips1.txt or tips2.txt
+    
+    fetch(codeUrl)
         .then(response => response.text())
         .then(data => {
             editor.setValue(data, -1);
+            clearInterval(intervalId); // 清除之前的定时器
+            clearCanvas(); // 清除画布
+            document.getElementById('tips').innerHTML = ''; // 清除提示
+            loadTips(selectedFile);
         })
         .catch(error => console.error('Error fetching code file:', error));
+
+    fetch(tipsUrl)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('tips-container').innerText = data;
+        })
+        .catch(error => console.error('Error fetching tips file:', error));
+}
+
+function clearCanvas() {
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height); // 清除画布内容
 }
 
 function updateCode() {
@@ -40,6 +61,10 @@ function updateCode() {
     script.type = 'text/javascript';
     script.innerHTML = code;
     document.body.appendChild(script);
+}
+
+function resetCode() {
+    loadSelectedCode(); // 重置为选定的初始代码和提示
 }
 
 // Bubbly button animation

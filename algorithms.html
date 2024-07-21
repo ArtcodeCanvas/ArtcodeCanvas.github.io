@@ -29,7 +29,7 @@
             <select id="codeSelector">  
                 <option value="codes/code1.txt">渐变线条</option>  
                 <option value="codes/code2.txt">H分形</option>  
-                <option value="codes/code3.txt">code3</option>  
+                <option value="codes/code3.txt">像素风星星</option>  
             </select>  
         </div>  
     </div>
@@ -38,7 +38,7 @@
             <canvas id="myCanvas" width="500" height="500"></canvas>
         </div>
         <div class="right">
-            <div id="codeEditor" class="ace_editor" style="min-height:400px; width:100%;"></div>
+            <div id="codeEditor" class="ace_editor" style="min-height:30vh; width:100%;"></div>
             <div class="tips" id="tips-container">
             </div>
             <div class="button-container">
@@ -52,45 +52,6 @@
     <script src="js/script.js"></script>
     <script src="color-picker/ew-color-picker.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            initEditor();
-            loadSelectedCode();
-
-            document.getElementById('codeSelector').addEventListener('change', loadSelectedCode);
-        });
-
-        function loadSelectedCode() {
-            const selectedFile = document.getElementById('codeSelector').value;
-            const codeUrl = `${selectedFile}`;
-            const tipsUrl = `tips/tips${selectedFile.charAt(10)}.txt`; // tips1.txt or tips2.txt
-            
-            fetch(codeUrl)
-                .then(response => response.text())
-                .then(data => {
-                    editor.setValue(data, -1);
-                })
-                .catch(error => console.error('Error fetching code file:', error));
-
-            fetch(tipsUrl)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('tips-container').innerText = data;
-                })
-                .catch(error => console.error('Error fetching tips file:', error));
-        }
-
-        function updateCode() {
-            const code = editor.getValue();
-            const script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.innerHTML = code;
-            document.body.appendChild(script);
-        }
-
-        function resetCode() {
-            loadSelectedCode(); // 重置为选定的初始代码和提示
-        }
-
         new ewColorPicker("colorselector");
     </script>
 </body>
