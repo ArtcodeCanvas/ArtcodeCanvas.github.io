@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="icon" href="resources/darklogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/bubbly_button.css">
+    <link rel="stylesheet" href="../css/projects.css">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Artcode Canvas</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="../algorithms.html">算法艺术</a></li>
+                <li><a href="projects_Sudoku.html" class="active">实战项目</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container-projects">
+        <div class="project_left">
+            <video controls width="80%">
+                <source src="../resources/ball-and-wall.mp4" type="video/mp4">
+                你的浏览器暂不支持播放该视频
+            </video>
+        </div>        
+        <div id="tutorialContent">
+            <h3>〇欢迎来到《球和板》小游戏教程！</h3>
+            <p>今天我们来一起学习如何使用C#在Unity中创建一个简单的球和板的小游戏。这个教程将带你一步步实现控制球移动的功能。</p>
+            <h3>〇初始化球的刚体组件</h3>
+            <p>首先，我们需要获取球的刚体组件，以便控制它的物理行为。在 <code>Start</code> 方法中，我们会初始化刚体组件并设置初始速度。</p>
+            <h3>〇设置移动速度</h3>
+            <p>接下来，我们定义一个公共变量 <code>moveSpeed</code>，用于控制球的移动速度。你可以根据需要调整这个值。</p>
+            <h3>〇处理输入控制</h3>
+            <p>在 <code>Update</code> 方法中，我们会检测键盘输入，控制球的前进和后退。每次按下 <code>W</code> 键时，球会向前移动；按下 <code>S</code> 键时，球会向后移动。</p>
+            <h3>〇运行游戏！</h3>
+            <p>好了！现在你可以运行游戏，试试看按下 <code>W</code> 键和 <code>S</code> 键时，球是否会前进和后退。你还可以尝试修改 <code>moveSpeed</code> 的值，看看球移动速度的变化！希望你玩得开心！如果有任何问题或需要进一步的帮助，随时来问我们。加油，小小开发者！🚀</p>
+            <h3>〇总结与拓展 🌟</h3>
+            <p>通过这个教程，你学会了如何在Unity中使用C#代码控制球的移动。继续探索和创造更多有趣的游戏吧！🌈 你还可以尝试增加更多的键盘控制，比如控制球的左右移动，或者加入更多的物理效果，来丰富你的小游戏！</p>
+        </div>
+        
+        <div class="project_right">
+            <button class="bubbly-button example-button" onclick="loadExampleCode2()">示例代码</button>
+            <div id="codeEditor" class="project_ace_editor" style="min-height:400px; width:100%;"></div>
+        </div>        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+    <script src="projects_ball-and-wall.js"></script>
+    <div class="next-project-link">
+        <a href="ball-and-wall.html">下一个项目</a>
+    </div>    
+</body>
+</html>

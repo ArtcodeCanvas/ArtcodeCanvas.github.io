@@ -105,3 +105,27 @@
     font-size: 14px;
     background-color: #bcbcc7;
 }
+.next-project-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.next-project-link a {
+    text-decoration: none;
+    font-size: 18px;
+    color: #a6a6a6;
+    transition: color 0.3s ease, border-bottom 0.3s ease, text-shadow 0.3s ease;
+}
+
+.next-project-link a:hover {
+    color: #ffffff;
+    border-bottom: 2px solid #ffffff;
+    font-weight: bold;
+}
+
+.next-project-link a.active {
+    color: #ffffff;
+    text-shadow: 0 0 20px rgba(117, 211, 255, 0.821), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);
+    font-weight: bold;
+}
