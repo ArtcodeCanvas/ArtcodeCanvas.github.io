@@ -1,6 +1,4 @@
-/* styles.css */
 
-/* 保持现有样式 */
 body {
     background-color: #191919;
     font-family: Arial, sans-serif;
@@ -74,7 +72,7 @@ header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 150px; /* 调整上方间距以适应导航栏 */
+    margin-top: 150px; 
     width: 90%;
     text-align: center;
     color: #ffffff;
@@ -105,7 +103,7 @@ header {
     position: relative;
     display: inline-block;
     font-size: 24px;
-    border-bottom: 1px dotted rgb(229, 229, 229); /* 悬停元素上显示点线 */
+    border-bottom: 1px dotted rgb(229, 229, 229); 
 }
 
 .tooltiptext {
@@ -121,7 +119,6 @@ header {
     z-index: 1;
 }
  
-/* 鼠标移动上去后显示提示框 */
 .tooltip:hover .tooltiptext {
     visibility: visible;
 }
@@ -141,7 +138,7 @@ header {
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 300px; /* 设置卡片宽度 */
+    width: 300px;
 }
 
 .card:hover {
@@ -150,9 +147,9 @@ header {
 }
 
 .card img {
-    width: 100%; /* 强制图片宽度适应卡片宽度 */
-    height: 160px; /* 设置固定高度 */
-    object-fit: cover; /* 保持图片纵横比裁剪 */
+    width: 100%; 
+    height: 160px; 
+    object-fit: cover; 
     border-radius: 10px;
     margin-bottom: 20px;
 }
@@ -183,7 +180,6 @@ button {
     cursor: pointer;
 }
 
-/* 花朵特效 */
 .flower {
     position: absolute;
     pointer-events: none;
@@ -221,9 +217,8 @@ button {
     }
 }
 
-/* 独特的样式用于 algorithms.html */
 .style-selector {
-    margin-top: 160px; /* 调整顶部间距 */
+    margin-top: 160px; 
     text-align: center;
 }
 
@@ -242,7 +237,7 @@ button {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-top: 15px; /* 调整顶部间距以适应新的下拉菜单 */
+    margin-top: 15px; 
     width: 90%;
 }
 
@@ -259,7 +254,7 @@ button {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 10px; /* 移动代码编辑器 */
+    margin-top: 10px; 
     height: 400px;
 }
 

@@ -28,15 +28,15 @@ function initEditor() {
 function loadSelectedCode() {
     const selectedFile = document.getElementById('codeSelector').value;
     const codeUrl = `${selectedFile}`;
-    const tipsUrl = `tips/tips${selectedFile.charAt(10)}.txt`; // tips1.txt or tips2.txt
+    const tipsUrl = `tips/tips${selectedFile.charAt(10)}.txt`; 
     
     fetch(codeUrl)
         .then(response => response.text())
         .then(data => {
             editor.setValue(data, -1);
-            clearInterval(intervalId); // 清除之前的定时器
-            clearCanvas(); // 清除画布
-            document.getElementById('tips').innerHTML = ''; // 清除提示
+            clearInterval(intervalId); 
+            clearCanvas(); 
+            document.getElementById('tips').innerHTML = ''; 
             loadTips(selectedFile);
         })
         .catch(error => console.error('Error fetching code file:', error));
@@ -52,7 +52,7 @@ function loadSelectedCode() {
 function clearCanvas() {
     const canvas = document.getElementById('myCanvas');
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // 清除画布内容
+    ctx.clearRect(0, 0, canvas.width, canvas.height); 
 }
 
 function updateCode() {
@@ -64,10 +64,9 @@ function updateCode() {
 }
 
 function resetCode() {
-    loadSelectedCode(); // 重置为选定的初始代码和提示
+    loadSelectedCode(); 
 }
 
-// Bubbly button animation
 var animateButton = function(e) {
     e.preventDefault();
     e.target.classList.remove('animate');
@@ -82,7 +81,6 @@ for (var i = 0; i < bubblyButtons.length; i++) {
     bubblyButtons[i].addEventListener('click', animateButton, false);
 }
 
-// Mouse move effect
 function initMouseEffect() {
     const interBubble = document.querySelector('.interactive');
     let curX = 0;

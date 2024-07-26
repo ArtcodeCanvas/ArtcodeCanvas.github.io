@@ -94,14 +94,14 @@
     color: white;
     line-height: 1.6;
     margin-bottom: 15px;
-    text-indent: 2em; /* 段落开头空格 */
+    text-indent: 2em; 
 }
 
 .example-button {
     position: absolute;
-    right: 4vw; /* 使按钮靠右 */
+    right: 4vw;
     top: 20vh; /* 上移按钮 */
-    padding: 5px 10px; /* 调整按钮大小 */
+    padding: 5px 10px;
     font-size: 14px;
     background-color: #bcbcc7;
 }

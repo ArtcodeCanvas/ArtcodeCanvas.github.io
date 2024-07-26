@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 let editor;
-let delay = 50; // 将时间间隔设置为0.2秒
+let delay = 50; 
 let currentCell = null;
 
 function initEditor() {
@@ -48,7 +48,7 @@ function generateSudokuBoard() {
             cell.contentEditable = sampleBoard[i][j] === ".";
             cell.innerText = sampleBoard[i][j] !== "." ? sampleBoard[i][j] : "";
             if (sampleBoard[i][j] !== ".") {
-                cell.style.color = 'black'; // 初始化数字为黑色
+                cell.style.color = 'black'; 
             }
             row.appendChild(cell);
         }
@@ -89,7 +89,7 @@ function setBoardValues(board) {
         const cells = rows[i].getElementsByTagName('td');
         for (let j = 0; j < cells.length; j++) {
             if (board[i][j] !== '.' && cells[j].innerText === '') {
-                cells[j].style.color = 'purple'; // 设置确定的数字为紫色
+                cells[j].style.color = 'purple';
             }
             cells[j].innerText = board[i][j] === '.' ? '' : board[i][j];
         }
