@@ -1,0 +1,87 @@
+/* achievements.css */
+
+/* 设置成就页面的背景 */
+body {
+    background-image: url('/resources/achievements_background.png'); /* 更新路径 */
+    background-size: cover; /* 确保背景图片覆盖整个页面 */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* 设置header的背景颜色为透明 */
+header {
+    background-color: transparent;
+    padding: 20px 0;
+}
+
+.star-container {
+    display: inline-block;
+    margin-right: 30px;
+    position: absolute;
+    top: calc(30% + 20vh * var(--random-height)); /* 30%-50% 高度之间 */
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 150px; /* 容器的固定宽度 */
+    height: 120px; /* 容器的固定高度 */
+    cursor: pointer; /* 鼠标悬停时显示手形 */
+}
+
+.star {
+    width: 50px;
+    height: 50px;
+    background-image: url('/resources/achievement-star.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    animation: moveStar var(--animation-duration) infinite cubic-bezier(0.4, 0.0, 0.2, 1), 
+               rotateStar var(--rotation-duration) infinite linear;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.star-container .achievement-name {
+    margin-top: 70px;
+    font-size: 16px;
+    color: white;
+    opacity: 0; /* 默认隐藏 */
+    transition: opacity 0.3s ease-in-out;
+    position: relative;
+    z-index: 1; /* 确保成就名称在星星之上 */
+}
+
+/* 禁用动画的星星 */
+.star.no-animation {
+    animation: none;
+    /* 保留 transition 以确保悬停时效果正常 */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* 悬停时效果 */
+.star-container:hover .achievement-name {
+    opacity: 1; /* 显示成就名称 */
+}
+
+.star-container:hover .star {
+    animation-play-state: paused; /* 暂停星星动画 */
+    transform: scale(1.2); /* 星星放大 */
+}
+
+/* 星星移动动画 */
+@keyframes moveStar {
+    0% { transform: translateY(0); }
+    25% { transform: translateY(var(--move-y1)); }
+    50% { transform: translateY(var(--move-y2)); }
+    75% { transform: translateY(var(--move-y1)); }
+    100% { transform: translateY(0); }
+}
+
+/* 星星旋转动画 */
+@keyframes rotateStar {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

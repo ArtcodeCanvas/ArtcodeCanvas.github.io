@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lesson 3</title>
+    <link rel="stylesheet" href="/algorithms/lessons/tutorials/tutorials.css"> <!-- 引入公共样式 -->
+</head>
+<body>
+
+    <h2>第三课：深入理解变量与数据类型</h2>
+
+    <p><strong>欢迎来到第三课！</strong></p>
+
+    <p>在前两节课中，我们已经初步掌握了变量的概念，并通过简单的操作改变了星星的数量。这一次，我们要进一步探索编程世界的“基本元素”——<span class="highlight">数据类型</span>。</p>
+
+    <h3>什么是数据类型？</h3>
+
+    <p>想象一下，你的魔法盒子（也就是变量）不仅可以装星星，还可以装各种不同的东西：数字、文字、颜色，甚至是“真假”判断。这些不同的东西，就是编程中的<span class="highlight">数据类型</span>。</p>
+
+    <p><span class="highlight">数据类型</span>是变量存储的数据的不同类别。JavaScript 中主要有以下几种数据类型：</p>
+
+    <ul>
+        <li><strong>数字（Number）</strong>: 可以是整数（如 <code>5</code>）或小数（如 <code>3.14</code>）。</li>
+        <li><strong>字符串（String）</strong>: 由引号包围的文本（如 <code>"Hello, World!"</code>）。</li>
+        <li><strong>布尔值（Boolean）</strong>: 只有两个取值：<code>true</code>（真）或 <code>false</code>（假）。</li>
+        <li><strong>对象（Object）</strong>: 一种复杂的数据类型，可以包含多个值（如 <code>{ name: '星星', count: 3 }</code>）。</li>
+        <li><strong>数组（Array）</strong>: 一组有序的数据集合（如 <code>[1, 2, 3]</code>）。</li>
+    </ul>
+
+    <h3>动手试试：数据类型的魔法</h3>
+
+    <p>现在，我们在代码编辑器中尝试使用不同的数据类型，并看看它们在画布上如何表现！</p>
+
+    <h3>任务：让一颗孤独的星星变成三颗彩色的星星</h3>
+
+    <p>当前代码设置如下：</p>
+
+    <pre><code>
+let showStar = false; // 🌟 这个值控制星星是否显示，目前是隐藏状态
+let starCount = 1; // 🌟 当前只有一颗星星
+let starName = "一颗看不见的星星"; // 🌟 这颗星星的名字
+
+</code></pre>
+
+    <p>你的任务是：</p>
+
+    <ol>
+        <li>将 <code>showStar</code> 改为 <code>true</code>，使星星显示出来。</li>
+        <li>将 <code>starCount</code> 改为 <code>3</code>，让页面上出现三颗星星。</li>
+        <li>删除 <code>starCount = 1;</code> 这行代码。</li>
+        <li>增加一行代码，创建一个包含三颗星星名字的数组：</li>
+    </ol>
+
+    <pre><code>let starNames = ["闪亮之星", "耀眼之星", "神秘之星"]; // 🌟 或者使用你喜欢的名字</code></pre>
+
+    <p>当你完成这些修改后，点击“运行”按钮，看看画布上会出现什么变化吧！</p>
+
+</body>
+</html>

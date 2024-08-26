@@ -1,0 +1,6 @@
+🌟 提示：
+1. 你可以修改 `image.src` 的路径，来加载你喜欢的图片作为素材🖼️。
+2. 尝试在 `getPixels()` 函数中调整 `Math.random()*20` 的值，
+看看像素分布的变化吧✨。
+3. 改变 `ctx.fillRect(curr_pixel.x, curr_pixel.y, 1, 1)` 中的宽高参数，
+看看像素的大小变化🖌️。

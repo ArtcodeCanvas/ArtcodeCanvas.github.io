@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    padding: 20px;
+}
+
+h2 {
+    color: #007BFF;
+    text-align: center;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+code {
+    background-color: #f4f4f4;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 1.1em;
+}
+
+pre {
+    background-color: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    overflow-x: auto;
+}
+
+.highlight {
+    color: #007BFF;
+    font-weight: bold;
+}

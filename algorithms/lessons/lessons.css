@@ -1,0 +1,191 @@
+/* Color Selector */
+.colorselector {  
+    position: absolute; /* 相对于其最近的已定位祖先元素进行定位 */
+    color: #ffffff;
+    top: 10%; 
+    right: 15%; /* 距离页面右边缘 15% */
+    z-index: 10; 
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    font-size: 24px;
+    border-bottom: 1px dotted rgb(229, 229, 229); 
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    font-size: 16px;
+    background-color: rgb(137, 137, 137);
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+}
+ 
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+/* Style Selector */
+.style-selector {
+    margin-top: 160px; 
+    text-align: center;
+}
+
+.style-selector label {
+    font-size: 24px;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+.style-selector select {
+    font-size: 18px;
+    padding: 5px 10px;
+}
+
+/* Container */
+.container2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 15px; 
+    width: 90%;
+}
+
+.left {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* shadow: 0 4px 6px -6px #434343; */
+}
+
+.right {
+    flex: 1;
+    display: flex;
+    height: 600px;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px; 
+}
+
+/* Ace Editor */
+.ace_editor {
+    width: 100%;
+    height: 400px;
+    margin-top: 130px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.ace_editor button {
+    margin-top: -5px;
+    background-color: #bcbcbc36;
+    box-shadow: none;
+}
+
+.ace_editor button:hover{
+    margin-top: -5px;
+    background-color: #bcbcbc36;
+    box-shadow: none;
+    box-shadow: 0 8px 8px rgba(122, 246, 255, 0.679);
+    font-weight: bold;
+}
+
+.run-button {
+    background-color: #53535d !important; 
+    color: #ffffff !important; 
+}
+
+/* Tutorial Button */
+.tutorial-button {
+    position: fixed; /* 使按钮固定在页面视窗中 */
+    top: 120px; /* 距离页面顶部20px */
+    right: 5%; /* 距离页面右边20px */
+    padding: 10px 15px;
+    background-color: #7bdcff;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 20;
+}
+
+.tutorial-button:hover {
+    background-color:#93fff1;
+}
+
+/* Tutorial Container */
+.tutorial-container {
+    position: fixed; /* 固定定位，确保其相对于窗口居中 */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 通过transform居中 */
+    width: 60%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 30;
+    overflow-y: auto;
+    max-height: 60vh;
+    display: none; /* 默认隐藏 */
+}
+
+/* Overlay */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 25;
+    display: none; /* 默认隐藏 */
+}
+
+.start-challenge-button {
+    padding: 10px 20px;
+    background-color: #7bdcff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    z-index: 1000; /* 确保按钮位于所有内容的上方 */
+}
+
+.start-challenge-button:hover {
+    background-color: #93fff1;
+}
+
+/* lessons.css */
+
+/* Conclusion Container */
+.conclusion-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 40;
+    overflow-y: auto;
+    max-height: 60vh;
+    display: none;
+}
+
+#next-lesson-button:hover {
+    background-color: #93fff1;
+}

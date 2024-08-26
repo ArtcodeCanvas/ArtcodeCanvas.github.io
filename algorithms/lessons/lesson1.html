@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algorithms</title>
+    <link rel="icon" href="/resources/darklogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bubbly_button.css"> 
+    <link rel="stylesheet" href="/color-picker/ew-color-picker.min.css">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Artcode Canvas</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/algorithms.html" class="active">算法艺术</a></li>
+                <li><a href="/projects/Sudoku.html">实战项目</a></li>
+                <li><a href="/achievements.html">成就</a></li>
+            </ul>
+        </nav>
+        <div class="colorselector">  
+            <p class="tooltip">颜色选择器<span class="tooltiptext">选中你喜欢的颜色并应用左下角代码</span></p>  
+            <colorselector></colorselector>  
+        </div>  
+    </header>
+    <div class="style-and-color-container">  
+        <div class="style-selector">  
+            <label for="codeSelector">选择样式:</label>  
+            <select id="codeSelector">  
+                <option value="code1.txt">渐变线条</option>  
+                <option value="code2.txt">H分形</option>  
+                <option value="code3.txt">像素风星星</option>  
+            </select>  
+        </div>  
+    </div>
+    <div class="container2">
+        <div class="left">
+            <canvas id="myCanvas" width="500" height="500"></canvas>
+        </div>
+        <div class="right">
+            <div id="codeEditor" class="ace_editor" style="min-height:30vh; width:100%;"></div>
+            <div class="tips" id="tips-container">
+            </div>
+            <div class="button-container">
+                <button class="bubbly-button run-button" onclick="resetCode()">重置</button>
+                <button class="bubbly-button" onclick="updateCode()">运行</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+    <script src="/js/init_editor.js"></script>
+    <script src="/js/bubble.js"></script>
+    <script src="/algorithms/algorithms.js"></script>
+    <script src="/color-picker/ew-color-picker.min.js"></script>
+    <script>
+        new ewColorPicker("colorselector");
+    </script>
+</body>
+</html>
