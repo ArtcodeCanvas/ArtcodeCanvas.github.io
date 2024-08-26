@@ -1,3 +1,14 @@
+let editor;
+var intervalId;
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    initEditor();
+    loadSelectedCode();
+
+    document.getElementById('codeSelector').addEventListener('change', loadSelectedCode);
+});
+
+
 function loadSelectedCode() {
     const selectedFile = document.getElementById('codeSelector').value;
     const codeUrl = `codes/${selectedFile}`;
@@ -20,4 +31,22 @@ function loadSelectedCode() {
             document.getElementById('tips-container').innerText = data;
         })
         .catch(error => console.error('Error fetching tips file:', error));
+}
+
+function clearCanvas() {
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, canvas.width, canvas.height); 
+}
+
+function updateCode() {
+    const code = editor.getValue();
+    const script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.innerHTML = code;
+    document.body.appendChild(script);
+}
+
+function resetCode() {
+    loadSelectedCode(); 
 }

@@ -51,7 +51,7 @@ body {
 }
 
 .card button {
-    background-color: #bcbcbc36;
+    background-color: #c1f0fe;
     box-shadow: none;
     width: 100%;
     padding: 10px;
@@ -63,13 +63,7 @@ body {
     pointer-events: none; 
 }
 
-.card button:hover {
-    background-color: #bcbcbc36;
-    box-shadow: none;
-}
-
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
