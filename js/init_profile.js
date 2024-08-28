@@ -3,8 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let achievements = JSON.parse(localStorage.getItem('achievements'));
 
     // 如果 "achievements" 不存在或长度不为11，则初始化为长度为11的全0数组
-    if (!achievements || achievements.length !== 11) {
-        achievements = Array(11).fill(0);
+    if (!achievements || achievements.length !== 10) {
+        achievements = Array(10).fill(0);
         localStorage.setItem('achievements', JSON.stringify(achievements));
     }
 

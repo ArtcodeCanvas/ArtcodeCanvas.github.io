@@ -12,22 +12,22 @@
 
 <p><strong>完成任务：</strong>下面是完整的条件语句代码，根据天气状况来决定绘制的内容。</p>
 
-<pre><code>
-function drawSky() {
-    ctx.clearRect(0, 0, 500, 500);
+<pre><code>function drawSky() {
     if (isDaytime) {
-        drawSun(); // 绘制太阳
+        drawSun(); // ☀️ 绘制太阳
         if (isClearSky) {
-            drawHappyChild(); // 绘制一个快乐的小朋友
+            drawHappyChild(); // 😊 绘制一个快乐的小朋友
         }
     } else {
-        drawMoonAndStars(); // 绘制月亮和星星
-        if (!isClearSky) {
-            drawSadChild(); // 绘制一个不快乐的小朋友
+        drawMoonAndStar(); // 🌙 🌟 绘制月亮和星星
+        if (isClearSky == false) {
+            drawDimStar(); // 🌑 绘制暗淡的星星
+            drawHiddenMoon(); // ☁️ 月亮被云遮住
+            drawSadChild(); // 😞 绘制一个不快乐的小朋友
         }
     }
 }
-drawSky(); // 运行函数以应用条件
+drawSky();
 </code></pre>
 
 <p>这段代码通过检查 <code>isDaytime</code> 和 <code>isClearSky</code> 的值来决定绘制哪种天气情景。</p>

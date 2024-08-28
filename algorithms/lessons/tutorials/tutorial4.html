@@ -32,12 +32,11 @@
 
     <p><strong>if...else</strong>语句就像是程序的选择器。例如：</p>
 
-    <pre><code>
-if (isClearSky) {
-    drawBrightStars(); // 🌟 绘制明亮的星星
+    <pre><code>if (isClearSky) {
+    drawBrightStar(); // 🌟 绘制明亮的星星
     drawMoon(); // 🌕 绘制月亮
 } else {
-    drawDimStars(); // 🌑 绘制暗淡的星星
+    drawDimStar(); // 🌑 绘制暗淡的星星
     drawHiddenMoon(); // ☁️ 月亮被云遮住
 }
     </code></pre>
@@ -60,8 +59,7 @@ if (isClearSky) {
 
     <p>有时，我们需要在一个条件语句中嵌套另一个条件语句，来处理更加复杂的场景。比如：</p>
 
-    <pre><code>
-function drawSky() {
+    <pre><code>function drawSky() {
     ctx.clearRect(0, 0, 500, 500);
     if (______) {
         drawSun(); // ☀️ 绘制太阳

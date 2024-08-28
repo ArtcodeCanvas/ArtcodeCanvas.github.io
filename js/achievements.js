@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         starContainer.appendChild(achievementName);
 
         starContainer.addEventListener('click', () => {
-            window.location.href = `${starContainer.dataset.lesson}.html`;
+            window.location.href = `/algorithms/lessons/${starContainer.dataset.lesson}.html`;
         });
 
         container.appendChild(starContainer);
