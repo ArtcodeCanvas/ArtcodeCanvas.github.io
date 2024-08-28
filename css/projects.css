@@ -18,6 +18,23 @@
     justify-content: center;
     align-items: center;
     margin-top: 60px;
+    width: 33%; /* 占据页面的左1/3 */
+}
+
+#game {
+    width: 300px;
+    height: 300px;
+    font-family: monospace;
+    white-space: pre;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    text-align: left;
+    display: inline-block;
+}
+
+#displayButton {
+    width: 100px;
+    margin-top: 10px;
 }
 
 .project_center {

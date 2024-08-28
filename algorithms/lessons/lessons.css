@@ -119,8 +119,30 @@
     z-index: 20;
 }
 
+.hint-button,.answer-button {
+    position: fixed; /* 使按钮固定在页面视窗中 */
+    top: 120px; /* 距离页面顶部20px */
+    right: 25%; /* 距离页面右边20px */
+    padding: 10px 15px;
+    background-color: #aaffee;
+    color: #04001e;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 20;
+}
+
+.answer-button {
+    right: 20%; /* 距离页面右边20px */
+}
+
 .tutorial-button:hover {
     background-color:#93fff1;
+}
+
+.hint-button:hover,.answer-button:hover {
+    background-color:#5c5c5c;
 }
 
 /* Tutorial Container */

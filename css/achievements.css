@@ -21,20 +21,20 @@ header {
 
 .star-container {
     display: inline-block;
-    margin-right: 30px;
+    margin-right: 10px; /* 减少容器之间的间距 */
     position: absolute;
     top: calc(30% + 20vh * var(--random-height)); /* 30%-50% 高度之间 */
     left: 0;
     right: 0;
     text-align: center;
-    width: 150px; /* 容器的固定宽度 */
-    height: 120px; /* 容器的固定高度 */
+    width: 80px; /* 容器的固定宽度，进一步减小 */
+    height: 80px; /* 容器的固定高度，进一步减小 */
     cursor: pointer; /* 鼠标悬停时显示手形 */
 }
 
 .star {
-    width: 50px;
-    height: 50px;
+    width: 35px; /* 星星宽度，进一步减小 */
+    height: 35px; /* 星星高度，进一步减小 */
     background-image: url('/resources/achievement-star.png'); 
     background-size: contain;
     background-repeat: no-repeat;
@@ -45,8 +45,9 @@ header {
 }
 
 .star-container .achievement-name {
-    margin-top: 70px;
-    font-size: 16px;
+    margin-top: 50px; /* 调整成就名称的位置以适应缩小后的容器 */
+    margin-left: 23%;
+    font-size: 12px; /* 进一步减小字体大小 */
     color: white;
     opacity: 0; /* 默认隐藏 */
     transition: opacity 0.3s ease-in-out;

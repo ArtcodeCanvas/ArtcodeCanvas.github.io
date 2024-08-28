@@ -10,6 +10,25 @@
     <link rel="stylesheet" href="../css/projects.css">
 </head>
 <body>
+    <div id="nav-placeholder"></div>
+<div id="page-overlay" class="overlay hidden"></div> <!-- 添加蒙版 -->
+
+<script>
+    // 确保代码只在 nav.html 加载并插入 DOM 后执行
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('DOMContentLoaded event fired');
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                console.log('nav.html successfully loaded');
+                document.getElementById('nav-placeholder').innerHTML = data;
+                loadNavigationLinks(); // 确保此函数在 nav.html 加载并插入后才执行
+            })
+            .catch(error => console.error('加载 nav.html 失败:', error));
+    });
+</script>
+
+<script src="nav.js"></script>
     <header>
         <h1 class="page-title">Artcode Canvas</h1>
         <nav class="navbar">
@@ -23,10 +42,8 @@
     </header>
     <div class="container-projects">
         <div class="project_left">
-            <video controls width="80%">
-                <source src="../resources/ball-and-wall.mp4" type="video/mp4">
-                你的浏览器暂不支持播放该视频
-            </video>
+            <div id="game"></div>
+            <button id="displayButton" class="bubbly-button">展示</button>
         </div>        
         <div id="tutorialContent">
             <h3>〇欢迎来到《球和板》小游戏教程！</h3>

@@ -1,26 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const achievements = [3, 1, 0, 3, 0]; // 成就信息
-    const achievementNames = ['第一课', '第二课', '第三课', '第四课', '第五课']; // 成就名称
+    // 从 Web Storage 中获取成就信息，如果不存在则初始化一个全为 0 的数组
+    let achievements = JSON.parse(localStorage.getItem('achievements'));
+    if (!achievements || achievements.length !== 10) { // 假设有 10 个成就
+        achievements = Array(10).fill(0);
+        localStorage.setItem('achievements', JSON.stringify(achievements));
+    }
+
+    const achievementNames = ['第一课', '第二课', '第三课', '第四课', '第五课', '第六课', '第七课', '第八课', '第九课', '第十课']; // 成就名称
     const container = document.querySelector('.achievement-container');
 
     achievements.forEach((stars, index) => {
         const starContainer = document.createElement('div');
         starContainer.classList.add('star-container');
         starContainer.style.setProperty('--random-height', Math.random()); // 随机高度
-        starContainer.style.left = `${index * 180}px`; // 设置水平排列
+        starContainer.style.left = `${20 + index * 140}px`; // 设置水平排列
 
         starContainer.dataset.lesson = `lesson${index + 1}`;
         const isAnimationEnabled = stars !== 0;
+
+        // 为整个容器的星星生成一个固定的起始高度
+        const maxY = 50;
+        const startY = isAnimationEnabled ? Math.random() * maxY : 0; // 仅当启用动画时生成随机高度
 
         for (let i = 0; i < 3; i++) {
             const star = document.createElement('div');
             star.classList.add('star');
 
-            star.style.left = `${i * 50}px`;
+            star.style.left = `${i * 30}px`;
 
             if (isAnimationEnabled) {
-                const maxY = 50;
-                const startY = Math.random() * maxY;
                 const moveY1 = startY + Math.random() * (maxY - startY);
                 const moveY2 = startY - Math.random() * startY;
 

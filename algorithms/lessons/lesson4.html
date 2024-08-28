@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4</title>
+    <link rel="icon" href="/resources/darklogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bubbly_button.css"> 
+    <link rel="stylesheet" href="/color-picker/ew-color-picker.min.css">
+    <link rel="stylesheet" href="lessons.css">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Artcode Canvas</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/algorithms.html" class="active">算法艺术</a></li>
+                <li><a href="/projects/Sudoku.html">实战项目</a></li>
+                <li><a href="/achievements.html">成就</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container2">
+        <div class="left">
+            <button id="hint-button" class="hint-button">提示</button>
+            <button id="answer-button" class="answer-button">答案</button>
+            <button id="tutorial-button" class="tutorial-button">教程</button>
+            <canvas id="myCanvas" width="500" height="500"></canvas>
+        </div>
+        <div class="right">
+            <div id="codeEditor" class="ace_editor" style="min-height:30vh; width:100%;"></div>
+            <div class="tips" id="tips-container"></div>
+            <div class="button-container">
+                <button class="bubbly-button run-button" onclick="resetCode()">重置</button>
+                <button class="bubbly-button" onclick="updateCode()">运行</button>
+                <button class="bubbly-button" id="submit-button">提交</button> <!-- 提交按钮 -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="tutorial-container" id="tutorial-container">
+        <!-- 教程内容将被动态加载到这里 -->
+        <button id="start-challenge-button" class="start-challenge-button">开始挑战</button>
+    </div>
+    <div class="tutorial-container" id="conclusion-container">
+        <button id="next-lesson-button" class="start-challenge-button">下一课</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+    <script src="/js/init_editor.js"></script>
+    <script src="/js/bubble.js"></script>
+    <script>
+        var canvas = document.getElementById("myCanvas"); // 获取页面上的画布元素
+        var ctx = canvas.getContext("2d"); // 获取2D绘图环境
+        ctx.clearRect(0, 0, 500, 500); // 清除画布上的内容，为新绘制的图形腾出空间
+        var sun,moon,star,child;
+        
+        // 示例图像对象，可以根据需要替换成实际资源路径
+        var sunImage = new Image(); 
+        sunImage.src = '/resources/sun.png'; // 设置太阳图片路径
+        
+        var moonImage = new Image(); 
+        moonImage.src = '/resources/moon.png'; // 设置月亮图片路径
+        
+        var starImage = new Image(); 
+        starImage.src = '/resources/achievement-star.png'; // 设置星星图片路径
+
+        var dimstarImage = new Image(); 
+        dimstarImage.src = '/resources/achievement-star.png'; // 设置星星图片路径
+        
+        var happyChildImage = new Image(); 
+        happyChildImage.src = '/resources/happy-child.png'; // 设置快乐小朋友图片路径
+        
+        var sadChildImage = new Image(); 
+        sadChildImage.src = '/resources/sad-child.png'; // 设置不快乐小朋友图片路径
+        
+        // 明亮的星星图片
+        var brightStarImage = new Image();
+        brightStarImage.src = '/resources/achievement-star.png';
+        
+        // 云朵图片
+        var cloudImage = new Image();
+        cloudImage.src = '/resources/cloud.png';
+        
+        // 定义绘制太阳的函数
+        function drawSun() {
+            sun = 1,moon = 0,star = 0,child = 0;
+            ctx.drawImage(sunImage, 100, 150, 100, 100); // 在画布上绘制太阳
+        }
+        
+        // 定义绘制月亮和星星的函数
+        function drawMoonAndStar() {
+            sun = 0,moon = 2,star = 2,child = 0;
+            ctx.drawImage(moonImage, 300, 150, 100, 100); // 在画布上绘制月亮
+            ctx.drawImage(starImage, 320, 160, 50, 50); // 绘制星星
+        }
+        
+        // 定义绘制快乐小朋友的函数
+        function drawHappyChild() {
+            child = 2;
+            ctx.drawImage(happyChildImage, 100, 330, 130, 150); // 在画布上绘制快乐的小朋友
+        }
+        
+        // 定义绘制不快乐小朋友的函数
+        function drawSadChild() {
+            child = 1;
+            ctx.drawImage(sadChildImage, 300, 300, 200, 200); // 在画布上绘制不快乐的小朋友
+        }
+        
+        function drawBrightStar() {
+            sun = 0,star = 2,child = 0;
+            ctx.drawImage(starImage, 320, 160, 50, 50); // 绘制星星
+        }
+        
+        // 绘制暗淡的星星
+        function drawDimStar() {
+            sun = 0,star = 1,child = 0;
+            ctx.drawImage(dimstarImage, 320, 160, 50, 50); // 绘制星星
+        }
+        
+        // 绘制月亮
+        function drawMoon() {
+            sun = 0,moon = 2,child = 0;
+            ctx.drawImage(moonImage, 300, 150, 100, 100); // 在指定位置绘制月亮
+        }
+        
+        // 绘制被云遮住的月亮
+        function drawHiddenMoon() {
+            sun = 0,moon = 1,child = 0;
+            ctx.drawImage(moonImage, 300, 150, 100, 100)
+            ctx.drawImage(cloudImage, 280, 180, 120, 80); // 在月亮上绘制云朵
+        }
+        
+    </script>
+    <script src="/algorithms/lessons.js"></script>
+    
+</body>
+</html>

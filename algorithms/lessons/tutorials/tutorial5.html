@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5</title>
+    <link rel="stylesheet" href="/algorithms/lessons/tutorials/tutorials.css"> <!-- 引入公共样式 -->
+</head>
+<body>
+
+    <h2>第五课：循环魔法阵的奥秘</h2>
+
+    <p><strong>欢迎来到第五课！</strong></p>
+
+    <p>在这节课中，我们将探讨一种非常强大的工具——<strong>循环语句</strong>。就像在魔法阵中点亮一颗颗星星一样，循环语句可以让我们轻松地重复执行一段代码，从而实现复杂的图形效果。</p>
+
+    <h3>什么是循环语句？</h3>
+
+    <p>循环语句是编程中的一种控制结构，它可以让一段代码反复执行，直到满足特定的条件。这种机制让我们不必手动重复编写代码，而是通过简单的语句让计算机帮我们完成重复的工作。</p>
+
+    <h4>for 循环语句</h4>
+
+    <p><strong>for</strong> 循环是最常见的循环语句之一，它的结构如下：</p>
+
+    <pre><code>
+for (初始化; 条件; 增量) {
+    // 这里的代码会被重复执行
+}
+    </code></pre>
+
+    <p>让我们来逐一解释：</p>
+    <ul>
+        <li><strong>初始化：</strong> 在循环开始前执行一次，用于定义循环变量。例如 <code>let i = 0;</code>。</li>
+        <li><strong>条件：</strong> 每次循环开始时都会检查这个条件。如果条件为真，循环继续；如果为假，循环结束。例如 <code>i < 6;</code>。</li>
+        <li><strong>增量：</strong> 每次循环结束后执行，用于更新循环变量。例如 <code>i++;</code>，表示 <code>i</code> 的值每次增加 1。</li>
+    </ul>
+
+    <p>综合起来，<code>for</code> 循环的完整流程如下：</p>
+    <ol>
+        <li>执行初始化部分。</li>
+        <li>检查条件。如果为真，进入循环体执行代码；否则跳出循环。</li>
+        <li>执行循环体的代码。</li>
+        <li>执行增量部分，然后回到第 2 步，继续循环。</li>
+    </ol>
+
+    <p>让我们来看一个具体的例子：</p>
+
+    <pre><code>
+for (let i = 0; i < 6; i++) {
+    console.log(i);
+}
+    </code></pre>
+
+    <p>在这个例子中，<code>i</code> 从 0 开始，每次循环加 1，直到 <code>i</code> 达到 6 为止。控制台会输出 0 到 5 的数字。</p>
+
+    <h4>while 循环语句</h4>
+
+    <p><strong>while</strong> 循环也是一种常见的循环语句，它的结构如下：</p>
+
+    <pre><code>
+while (条件) {
+    // 只要条件为真，这里的代码就会被重复执行
+}
+    </code></pre>
+
+    <p>让我们来详细解释：</p>
+    <ul>
+        <li><strong>条件：</strong> 在每次循环之前都会检查这个条件。如果条件为真，循环继续；如果为假，循环结束。</li>
+    </ul>
+
+    <p>与 <code>for</code> 循环不同的是，<code>while</code> 循环在循环体内通常会有更新循环变量的代码，否则可能会进入无限循环。例如：</p>
+
+    <pre><code>
+let i = 0;
+while (i < 6) {
+    console.log(i);
+    i++;
+}
+    </code></pre>
+
+    <p>这个例子与前面的 <code>for</code> 循环效果相同，会输出 0 到 5 的数字。</p>
+
+    <h4>让星星在魔法阵中闪耀</h4>
+
+    <p>让我们把学到的循环知识应用到魔法阵中！在之前的课上，你已经学会了如何使用条件语句来控制星星的显示。现在，我们将使用循环语句，让魔法阵中的所有星星都被点亮。</p>
+
+    <h4>任务：</h4>
+
+    <p>请将以下代码中的 <code>for</code> 循环修改为循环六次，使得魔法阵中的六颗星星都被点亮。你需要把 <code>i < 1</code> 改为 <code>i < 6</code>：</p>
+
+    <pre><code>
+for (let i = 0; i < 1; i++) {
+    changeStarToMoon();
+}
+    </code></pre>
+
+    <p>完成修改后，你会看到魔法阵中的六颗星星依次被点亮，形成一个完整的魔法阵！</p>
+
+</body>
+</html>

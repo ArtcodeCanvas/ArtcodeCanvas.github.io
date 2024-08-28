@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4 Tips</title>
+    <link rel="stylesheet" href="/algorithms/lessons/tutorials/tutorials.css">
+</head>
+<body>
+
+<h2>第四课：用条件语句打造互动性 - 提示</h2>
+
+<p><strong>任务回顾：</strong>根据天气状况绘制不同的景象。</p>
+
+<h3>如何使用条件语句：</h3>
+<ul>
+    <li>检查 <code>isClearSky</code> 变量是否为 <code>true</code> 来决定绘制明亮的天空还是阴暗的天空。</li>
+    <li>在函数 <code>drawSky()</code> 中使用 if...else 语句来实现这一逻辑。</li>
+    <li>考虑使用 <code>isDaytime</code> 变量来决定是否绘制太阳或月亮。</li>
+    <li>使用逻辑运算符 <code>&&</code> 来组合条件，例如 <code>isDaytime && isClearSky</code> 检查是否是白天且晴朗。</li>
+</ul>
+
+<p><strong>提示：</strong>仔细阅读任务要求，理解每个逻辑运算符的作用和如何应用它们来实现多条件的判断。</p>
+
+<pre><code>
+// 示例：使用嵌套 if 语句
+if (isDaytime) {
+    drawSun(); // 绘制太阳
+    if (isClearSky) {
+        drawHappyChild(); // 绘制快乐的小朋友
+    }
+} else {
+    drawMoonAndStars(); // 绘制月亮和星星
+    if (!isClearSky) {
+        drawSadChild(); // 绘制不快乐的小朋友
+    }
+}
+</code></pre>
+
+<p>使用这些提示修改代码，并根据不同的天气状况来绘制相应的景象。</p>
+
+</body>
+</html>

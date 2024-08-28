@@ -56,7 +56,7 @@ starImage.onload = function() {
         // 在每颗星星下面显示名字
         ctx.fillStyle = "white";
         ctx.font = "16px Arial";
-        ctx.fillText(starName[i], x+20, y + 70); // 星星名字显示在星星下方
+        ctx.fillText(starName[i], x-10, y + 70); // 星星名字显示在星星下方
     }
 };
 

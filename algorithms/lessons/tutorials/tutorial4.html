@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4</title>
+    <link rel="stylesheet" href="/algorithms/lessons/tutorials/tutorials.css"> <!-- 引入公共样式 -->
+</head>
+<body>
+
+    <h2>第四课：用条件语句打造互动性</h2>
+
+    <p><strong>欢迎来到第四课！</strong></p>
+
+    <p>在编程的世界中，我们常常需要程序根据不同的条件做出不同的反应。就像生活中，天晴的时候你可能会去公园散步，而下雨时你会选择待在家里喝杯热茶。在编程中，这样的选择由<strong>条件语句</strong>来实现。</p>
+
+    <h3>什么是条件语句？</h3>
+
+    <p>条件语句允许你根据特定条件来执行代码块。如果条件成立，就执行一段代码；否则，就执行另一段代码。</p>
+
+    <h4>相等运算符：==、!=、===</h4>
+
+    <p>在条件语句中，你可以使用相等运算符来比较变量和值：</p>
+
+    <ul>
+        <li><code>==</code>：<strong>相等运算符</strong>，用于判断两个值是否相等，但不比较类型。例如，<code>5 == '5'</code>会返回<code>true</code>。</li>
+        <li><code>!=</code>：<strong>不等运算符</strong>，用于判断两个值是否不相等。例如，<code>5 != '6'</code>会返回<code>true</code>。</li>
+        <li><code>===</code>：<strong>全等运算符</strong>，用于判断两个值是否相等且类型相同。例如，<code>5 === 5</code>返回<code>true</code>，但<code>5 === '5'</code>返回<code>false</code>，因为类型不同。</li>
+    </ul>
+
+    <h4>if...else 语句</h4>
+
+    <p><strong>if...else</strong>语句就像是程序的选择器。例如：</p>
+
+    <pre><code>
+if (isClearSky) {
+    drawBrightStars(); // 🌟 绘制明亮的星星
+    drawMoon(); // 🌕 绘制月亮
+} else {
+    drawDimStars(); // 🌑 绘制暗淡的星星
+    drawHiddenMoon(); // ☁️ 月亮被云遮住
+}
+    </code></pre>
+
+    <p>在这个例子中，如果<code>isClearSky</code>是<code>true</code>，则会在画布上显示明亮的星星和月亮。如果它是<code>false</code>，则天空将被云层遮挡，星星变得暗淡，月亮也会消失。</p>
+
+    <p><strong>任务：</strong>将代码中的<code>isClearSky = false</code>改为<code>true</code>，看看星星和月亮如何出现！</p>
+
+    <h4>逻辑运算符</h4>
+
+    <p>有时候，我们需要更复杂的判断条件。这时，可以使用逻辑运算符：<code>!</code>、<code>&&</code>、<code>||</code>。</p>
+
+    <ul>
+        <li><code>!</code>：取反运算符。例如，<code>!isClearSky</code>的意思是“如果不是晴天”。</li>
+        <li><code>&&</code>：逻辑与运算符。它要求两个条件同时为真。例如，<code>isDaytime && isClearSky</code>表示“白天且晴朗”。</li>
+        <li><code>||</code>：逻辑或运算符。它要求至少一个条件为真。例如，<code>isDaytime || isClearSky</code>表示“白天或晴朗”。</li>
+    </ul>
+
+    <h4>嵌套条件语句</h4>
+
+    <p>有时，我们需要在一个条件语句中嵌套另一个条件语句，来处理更加复杂的场景。比如：</p>
+
+    <pre><code>
+function drawSky() {
+    ctx.clearRect(0, 0, 500, 500);
+    if (______) {
+        drawSun(); // ☀️ 绘制太阳
+        if (_____) {
+            drawHappyChild(); // 😊 绘制一个快乐的小朋友
+        }
+    } else {
+        drawMoonAndStar(); // 🌙 🌟 绘制月亮和星星
+        if (_____) {
+            drawDimStar(); // 🌑 绘制暗淡的星星
+            drawHiddenMoon(); // ☁️ 月亮被云遮住
+            drawSadChild(); // 😞 绘制一个不快乐的小朋友
+        }
+    }
+}
+drawSky() //不要忘记把这一行也复制过去哦！
+    </code></pre>
+
+    <p><strong>任务：</strong>你只需要补全上述代码中的<strong>条件</strong>语句，让程序正确地展示白天与黑夜、晴朗与阴云的不同场景。如果白天则展示太阳，白天且天晴（isClearSky为真）则展示一个快乐的小朋友；如果晚上则展示月亮和星星，晚上且天气不晴朗展示一个不快乐的小朋友。</p>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4 Answers</title>
+    <link rel="stylesheet" href="/algorithms/lessons/tutorials/tutorials.css">
+</head>
+<body>
+
+<h2>第四课：用条件语句打造互动性 - 答案</h2>
+
+<p><strong>完成任务：</strong>下面是完整的条件语句代码，根据天气状况来决定绘制的内容。</p>
+
+<pre><code>
+function drawSky() {
+    ctx.clearRect(0, 0, 500, 500);
+    if (isDaytime) {
+        drawSun(); // 绘制太阳
+        if (isClearSky) {
+            drawHappyChild(); // 绘制一个快乐的小朋友
+        }
+    } else {
+        drawMoonAndStars(); // 绘制月亮和星星
+        if (!isClearSky) {
+            drawSadChild(); // 绘制一个不快乐的小朋友
+        }
+    }
+}
+drawSky(); // 运行函数以应用条件
+</code></pre>
+
+<p>这段代码通过检查 <code>isDaytime</code> 和 <code>isClearSky</code> 的值来决定绘制哪种天气情景。</p>
+
+<p>尝试在代码编辑器中运行这段代码，观察如何根据不同的条件改变画布上的显示。</p>
+
+</body>
+</html>

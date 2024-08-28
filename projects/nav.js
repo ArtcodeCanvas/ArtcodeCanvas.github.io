@@ -22,7 +22,7 @@ function loadNavigationLinks() {
         return;
     }
 
-    const files = ['projects_Sudoku.html', 'ball-and-wall.html']; // 列出项目页面文件名
+    const files = ['Sudoku.html', 'ball-and-wall.html']; // 列出项目页面文件名
     const currentPage = window.location.pathname.split('/').pop();
 
     files.forEach(fileName => {

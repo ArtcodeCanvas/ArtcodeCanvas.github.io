@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5</title>
+    <link rel="icon" href="/resources/darklogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bubbly_button.css"> 
+    <link rel="stylesheet" href="/color-picker/ew-color-picker.min.css">
+    <link rel="stylesheet" href="lessons.css">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Artcode Canvas</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/algorithms.html" class="active">算法艺术</a></li>
+                <li><a href="/projects/Sudoku.html">实战项目</a></li>
+                <li><a href="/achievements.html">成就</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container2">
+        <div class="left">
+            <button id="hint-button" class="hint-button">提示</button>
+            <button id="answer-button" class="answer-button">答案</button>
+            <button id="tutorial-button" class="tutorial-button">教程</button>
+            <canvas id="myCanvas" width="500" height="500"></canvas>
+        </div>
+        <div class="right">
+            <div id="codeEditor" class="ace_editor" style="min-height:30vh; width:100%;"></div>
+            <div class="tips" id="tips-container"></div>
+            <div class="button-container">
+                <button class="bubbly-button run-button" onclick="resetCode()">重置</button>
+                <button class="bubbly-button" onclick="updateCode()">运行</button>
+                <button class="bubbly-button" id="submit-button">提交</button> <!-- 提交按钮 -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="tutorial-container" id="tutorial-container">
+        <!-- 教程内容将被动态加载到这里 -->
+        <button id="start-challenge-button" class="start-challenge-button">开始挑战</button>
+    </div>
+    <div class="tutorial-container" id="conclusion-container">
+        <button id="next-lesson-button" class="start-challenge-button">下一课</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+    <script src="/js/init_editor.js"></script>
+    <script src="/js/bubble.js"></script>
+    <script src="/algorithms/lessons.js"></script>
+    <script>
+            var canvas = document.getElementById("myCanvas");
+            var ctx = canvas.getContext("2d");
+
+            var centerX = canvas.width / 2;
+            var centerY = canvas.height / 2;
+            var radius = 100;
+
+            var starPositions = [];
+            var currentStarIndex = 0;
+
+            // 绘制等边三角形的函数
+            function drawTriangle(x, y, size, rotation, color) {
+                ctx.beginPath();
+                ctx.moveTo(x + size * Math.cos(rotation), y + size * Math.sin(rotation));
+
+                for (let i = 1; i <= 3; i++) {
+                    ctx.lineTo(
+                        x + size * Math.cos(rotation + (i * 2 * Math.PI) / 3),
+                        y + size * Math.sin(rotation + (i * 2 * Math.PI) / 3)
+                    );
+                }
+
+                ctx.closePath();
+                ctx.strokeStyle = color; // 根据传入的颜色绘制边
+                ctx.stroke();
+            }
+
+            // 绘制六颗星星的魔法阵
+            function drawHexagram() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                starPositions = [];
+
+                // 判断是否要绘制随机颜色的边
+                let edgeColor = (currentStarIndex > 1) ? getRandomColor() : 'white';
+
+                for (let i = 0; i < 6; i++) {
+                    let rotation = (i * Math.PI) / 3;
+                    drawTriangle(centerX - 50, centerY + 50, radius, rotation, edgeColor);
+
+                    let starX = centerX - 50 + radius * Math.cos(rotation);
+                    let starY = centerY + 50 + radius * Math.sin(rotation);
+                    starPositions.push({ x: starX, y: starY });
+                }
+
+                drawStars();
+            }
+
+            // 绘制所有星星或月亮
+            function drawStars() {
+                for (let i = 0; i < starPositions.length; i++) {
+                    let { x, y } = starPositions[i];
+                    let image = new Image();
+                    
+                    if (i < currentStarIndex) {
+                        image.src = '/resources/achievement-star.png';
+                    } else {
+                        image.src = '/resources/dim-achievement-star.png';
+                    }
+
+                    image.onload = (function(x, y) {
+                        return function() {
+                            ctx.drawImage(image, x - 25, y - 25, 50, 50);
+                        };
+                    })(x, y);
+                }
+            }
+
+            // 生成随机颜色
+            function getRandomColor() {
+                let letters = '0123456789ABCDEF';
+                let color = '#';
+                for (let i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
+            // 封装的函数：将当前星星替换为月亮
+            function changeStarToMoon() {
+                if (currentStarIndex < starPositions.length) {
+                    currentStarIndex++;
+                    drawHexagram(); // 每次替换星星时，重新绘制整个图案
+                }
+            }
+
+            // 设置画笔样式
+            ctx.lineWidth = 2;
+
+            // 绘制六颗星星的魔法阵
+            drawHexagram();
+
+    </script>
+</body>
+</html>
