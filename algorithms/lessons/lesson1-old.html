@@ -19,9 +19,8 @@
                 <li><a href="/projects/Sudoku.html">实战项目</a></li>
                 <li><a href="/achievements.html">成就</a></li>
             </ul>
-        </nav>
+        </nav> 
     </header>
-    
     <div class="style-and-color-container">  
         <div class="style-selector">  
             <label for="codeSelector">选择样式:</label>  
@@ -37,7 +36,6 @@
             <canvas id="myCanvas" width="500" height="500"></canvas>
         </div>
         <div class="right">
-            <button class="next-lesson" onclick="window.location.href='lesson2.html'">完成并跳转至第二课</button>
             <div id="codeEditor" class="ace_editor" style="min-height:30vh; width:100%;"></div>
             <div class="tips" id="tips-container">
             </div>
@@ -47,42 +45,13 @@
             </div>
         </div>
     </div>
-
-    <!-- 蒙版 -->
-    <div class="overlay-1" id="overlay-1"></div>
-
-    <!-- 提示窗口 -->
-    <div id="tips-modal">
-        <p>😘按照提示内容，修改对应代码，再点击运行，看看得到的艺术效果是否符合你的想象吧！
-            你不必为难以理解代码而担忧，在之后的课程中，你将学习到它们是如何被编写出来的，现在你只需要尝试修改它的一部分，从这里开始你的编程艺术之旅！
-        </p>
-        <button id="start-button">开始挑战</button>
-    </div>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
     <script src="/js/init_editor.js"></script>
     <script src="/js/bubble.js"></script>
     <script src="/algorithms/algorithms.js"></script>
     <script>
-
-        // 展示提示窗口的逻辑
-        document.addEventListener('DOMContentLoaded', (event) => {
-            const overlay = document.getElementById('overlay-1');
-            const modal = document.getElementById('tips-modal');
-            const startButton = document.getElementById('start-button');
-
-            overlay.style.display = 'block';
-            modal.style.display = 'block';
-
-            const closeModal = () => {
-                overlay.style.display = 'none';
-                modal.style.display = 'none';
-            };
-
-            startButton.addEventListener('click', closeModal);
-            overlay.addEventListener('click', closeModal);
-        });
+        new ewColorPicker("colorselector");
     </script>
 </body>
 </html>

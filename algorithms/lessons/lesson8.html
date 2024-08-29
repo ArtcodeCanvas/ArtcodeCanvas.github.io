@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8</title>
+    <link rel="icon" href="/resources/darklogo.png" type="image/x-icon">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/bubbly_button.css"> 
+    <link rel="stylesheet" href="/color-picker/ew-color-picker.min.css">
+    <link rel="stylesheet" href="lessons.css">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Artcode Canvas</h1>
+        <nav class="navbar">
+            <ul>
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/algorithms.html" class="active">算法艺术</a></li>
+                <li><a href="/projects/Sudoku.html">实战项目</a></li>
+                <li><a href="/achievements.html">成就</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="container2">
+        <div class="left">
+            <button id="hint-button" class="hint-button">提示</button>
+            <button id="answer-button" class="answer-button">答案</button>
+            <button id="tutorial-button" class="tutorial-button">教程</button>
+            <canvas id="myCanvas" width="500" height="500"></canvas>
+        </div>
+        <div class="right">
+            <div id="codeEditor" class="ace_editor" style="min-height:30vh; width:100%;"></div>
+            <div class="tips" id="tips-container"></div>
+            <div class="button-container">
+                <button class="bubbly-button run-button" onclick="resetCode()">重置</button>
+                <button class="bubbly-button" onclick="updateCode()">运行</button>
+                <button class="bubbly-button" id="submit-button">提交</button> <!-- 提交按钮 -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="tutorial-container" id="tutorial-container">
+        <!-- 教程内容将被动态加载到这里 -->
+        <button id="start-challenge-button" class="start-challenge-button">开始挑战</button>
+    </div>
+    <div class="tutorial-container" id="conclusion-container">
+        <button id="next-lesson-button" class="start-challenge-button">下一课</button>
+    </div>
+    <div class="overlay" id="overlay"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ext-language_tools.js"></script>
+    <script src="/js/init_editor.js"></script>
+    <script src="/js/bubble.js"></script>
+    <script src="/algorithms/lessons.js"></script>
+</body>
+</html>

@@ -154,7 +154,7 @@ function setupTutorialAndSubmit(lessonNumber, checkFile, conclusionFile, wrongAn
 }
 
 function updateAchievements() {
-    const achievements = JSON.parse(localStorage.getItem('achievements')) || new Array(11).fill(0);
+    const achievements = JSON.parse(localStorage.getItem('achievements')) || new Array(10).fill(0);
     const currentAchievement = achievements[lessonNumber - 1];
     achievements[lessonNumber - 1] = Math.max(currentAchievement, tempAchievementStars);
     localStorage.setItem('achievements', JSON.stringify(achievements));

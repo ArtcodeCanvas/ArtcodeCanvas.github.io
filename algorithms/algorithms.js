@@ -45,6 +45,9 @@ function updateCode() {
     script.type = 'text/javascript';
     script.innerHTML = code;
     document.body.appendChild(script);
+    const achievements = JSON.parse(localStorage.getItem('achievements')) || new Array(10).fill(0);
+    achievements[0] = 3;
+    localStorage.setItem('achievements', JSON.stringify(achievements));
 }
 
 function resetCode() {

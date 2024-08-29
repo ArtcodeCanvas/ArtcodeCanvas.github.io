@@ -33,6 +33,10 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease; /* 悬停动画 */
 }
 
+.lesson10 {
+    background-color: rgb(70, 80, 95);
+}
+
 .card img {
     width: 100%;
     height: 65%;
@@ -51,7 +55,7 @@ body {
 }
 
 .card button {
-    background-color: #c1f0fe;
+    background-color: #92b3be;
     box-shadow: none;
     width: 100%;
     padding: 10px;
