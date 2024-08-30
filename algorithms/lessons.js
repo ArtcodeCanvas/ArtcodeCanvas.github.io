@@ -20,9 +20,8 @@ function initializePage() {
     });
 
     setupTutorialAndSubmit(lessonNumber, checkFile, conclusionFile, wrongAnswerFile);
-
     setupButton('tutorial-button', `tutorials/tutorial${lessonNumber}.html`);
-    setupButton('hint-button', `hints/hint${lessonNumber}.html`, math.min(2,tempStarsValue)); 
+    setupButton('hint-button', `hints/hint${lessonNumber}.html`, Math.min(2,tempAchievementStars)); 
     setupButton('answer-button', `answers/answer${lessonNumber}.html`, 1); 
 
     loadTutorial(lessonNumber);
