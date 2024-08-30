@@ -31,9 +31,6 @@ function loadExampleCode2() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    // 其他初始化代码
-
-    // 为展示按钮添加点击事件
     document.getElementById('displayButton').addEventListener('click', function() {
         runEditorCode();
         restartGame();
