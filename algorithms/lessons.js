@@ -22,8 +22,8 @@ function initializePage() {
     setupTutorialAndSubmit(lessonNumber, checkFile, conclusionFile, wrongAnswerFile);
 
     setupButton('tutorial-button', `tutorials/tutorial${lessonNumber}.html`);
-    setupButton('hint-button', `hints/hint${lessonNumber}.html`, 2); // 点击提示按钮时，修改tempAchievementStars为2
-    setupButton('answer-button', `answers/answer${lessonNumber}.html`, 1); // 点击答案按钮时，修改tempAchievementStars为1
+    setupButton('hint-button', `hints/hint${lessonNumber}.html`, math.min(2,tempStarsValue)); 
+    setupButton('answer-button', `answers/answer${lessonNumber}.html`, 1); 
 
     loadTutorial(lessonNumber);
 }
@@ -35,7 +35,7 @@ function setupButton(buttonId, fileUrl, tempStarsValue = null) {
 
     button.addEventListener('click', () => {
         if (tempStarsValue !== null) {
-            tempAchievementStars = tempStarsValue; // 修改tempAchievementStars
+            tempAchievementStars = tempStarsValue; 
         }
 
         fetch(fileUrl)
@@ -59,8 +59,8 @@ function loadExample(exampleUrl, callback) {
         .then(response => response.text())
         .then(data => {
             editor.setValue(data, -1);
-            clearCanvas(); // 清空画布
-            if (callback) callback(); // 执行传入的回调函数
+            clearCanvas(); 
+            if (callback) callback(); 
         })
         .catch(error => console.error('Error fetching example file:', error));
 }
@@ -74,41 +74,32 @@ function setupTutorialAndSubmit(lessonNumber, checkFile, conclusionFile, wrongAn
     const conclusionContainer = document.getElementById('conclusion-container');
     const nextLessonButton = document.getElementById('next-lesson-button');
 
-    // 处理教程按钮点击事件
     tutorialButton.addEventListener('click', () => loadTutorial(lessonNumber));
 
-    // 处理蒙版点击事件
     overlay.addEventListener('click', () => {
         tutorialContainer.style.display = 'none';
         conclusionContainer.style.display = 'none';
         overlay.style.display = 'none';
     });
 
-    // 处理开始挑战按钮点击事件
     startChallengeButton.addEventListener('click', () => {
         tutorialContainer.style.display = 'none';
         overlay.style.display = 'none';
     });
 
-    // 提交按钮点击事件
     submitButton.addEventListener('click', () => {
-        // 首先运行代码
         updateCode();
 
-        // 然后加载并执行check.js文件
         loadScript(checkFile, () => {
             overlay.style.display = 'block';
             try {
                 if (typeof check === 'function' && check()) {
-                    // 如果check函数返回true，检查并更新成就
                     updateAchievements();
-
-                    // 加载成功页面
                     fetch(conclusionFile)
                         .then(response => response.text())
                         .then(data => {
                             conclusionContainer.innerHTML = `<h2>恭喜！</h2>${data}`;
-                            nextLessonButton.innerText = "下一课"; // 更新按钮文本
+                            nextLessonButton.innerText = "下一课"; 
                             nextLessonButton.onclick = () => {
                                 window.location.href = `lesson${parseInt(lessonNumber) + 1}.html`;
                             };
@@ -122,7 +113,7 @@ function setupTutorialAndSubmit(lessonNumber, checkFile, conclusionFile, wrongAn
                         .then(response => response.text())
                         .then(data => {
                             conclusionContainer.innerHTML = `<h2>再试一次</h2>${data}`;
-                            nextLessonButton.innerText = "继续挑战"; // 更新按钮文本
+                            nextLessonButton.innerText = "继续挑战"; 
                             nextLessonButton.onclick = () => {
                                 conclusionContainer.style.display = 'none';
                                 overlay.style.display = 'none';
@@ -133,13 +124,12 @@ function setupTutorialAndSubmit(lessonNumber, checkFile, conclusionFile, wrongAn
                         .catch(error => console.error('无法加载错误文件:', error));
                 }
             } catch (error) {
-                // 处理check函数执行时的异常
                 console.error('执行验证时发生错误:', error);
                 fetch(wrongAnswerFile)
                     .then(response => response.text())
                     .then(data => {
                         conclusionContainer.innerHTML = `<h2>出错了</h2>${data}`;
-                        nextLessonButton.innerText = "再试一次"; // 更新按钮文本
+                        nextLessonButton.innerText = "再试一次"; 
                         nextLessonButton.onclick = () => {
                             conclusionContainer.style.display = 'none';
                             overlay.style.display = 'none';
@@ -206,11 +196,11 @@ function updateCode() {
             const script2 = document.createElement('script');
             script2.type = 'text/javascript';
             script2.innerHTML = `(function() { ${scriptCode} })();`; // 包装为立即执行的函数表达式（IIFE）
-            document.body.appendChild(script2); // 执行 script2.js 的代码
+            document.body.appendChild(script2); 
         })
         .catch(error => console.error('Error loading script:', error));
 }
 
 function resetCode() {
-    initializePage(); // 重置时重新初始化页面
+    initializePage(); 
 }

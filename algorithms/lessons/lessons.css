@@ -1,13 +1,11 @@
-/* Color Selector */
 .colorselector {  
-    position: absolute; /* 相对于其最近的已定位祖先元素进行定位 */
+    position: absolute;
     color: #ffffff;
     top: 10%; 
-    right: 15%; /* 距离页面右边缘 15% */
+    right: 15%; 
     z-index: 10; 
 }
 
-/* Tooltip */
 .tooltip {
     position: relative;
     display: inline-block;
@@ -32,7 +30,6 @@
     visibility: visible;
 }
 
-/* Style Selector */
 .style-selector {
     margin-top: 160px; 
     text-align: center;
@@ -75,7 +72,6 @@
     margin-top: 10px; 
 }
 
-/* Ace Editor */
 .ace_editor {
     width: 100%;
     height: 400px;
@@ -104,11 +100,10 @@
     color: #ffffff !important; 
 }
 
-/* Tutorial Button */
 .tutorial-button {
-    position: fixed; /* 使按钮固定在页面视窗中 */
-    top: 120px; /* 距离页面顶部20px */
-    right: 5%; /* 距离页面右边20px */
+    position: fixed; 
+    top: 120px; 
+    right: 5%; 
     padding: 10px 15px;
     background-color: #7bdcff;
     color: #000000;
@@ -120,9 +115,9 @@
 }
 
 .hint-button,.answer-button {
-    position: fixed; /* 使按钮固定在页面视窗中 */
-    top: 120px; /* 距离页面顶部20px */
-    right: 25%; /* 距离页面右边20px */
+    position: fixed; 
+    top: 120px; 
+    right: 25%; 
     padding: 10px 15px;
     background-color: #aaffee;
     color: #04001e;
@@ -134,7 +129,7 @@
 }
 
 .answer-button {
-    right: 20%; /* 距离页面右边20px */
+    right: 20%; 
 }
 
 .tutorial-button:hover {
@@ -145,12 +140,11 @@
     background-color:#5c5c5c;
 }
 
-/* Tutorial Container */
 .tutorial-container {
-    position: fixed; /* 固定定位，确保其相对于窗口居中 */
+    position: fixed; 
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* 通过transform居中 */
+    transform: translate(-50%, -50%);
     width: 60%;
     background-color: #fff;
     padding: 20px;
@@ -159,10 +153,9 @@
     z-index: 30;
     overflow-y: auto;
     max-height: 60vh;
-    display: none; /* 默认隐藏 */
+    display: none; 
 }
 
-/* Overlay */
 .overlay {
     position: fixed;
     top: 0;
@@ -171,7 +164,7 @@
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
     z-index: 25;
-    display: none; /* 默认隐藏 */
+    display: none; 
 }
 
 .start-challenge-button {
@@ -182,16 +175,13 @@
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    z-index: 1000; /* 确保按钮位于所有内容的上方 */
+    z-index: 1000; 
 }
 
 .start-challenge-button:hover {
     background-color: #93fff1;
 }
 
-/* lessons.css */
-
-/* Conclusion Container */
 .conclusion-container {
     position: fixed;
     top: 50%;

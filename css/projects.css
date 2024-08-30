@@ -1,6 +1,3 @@
-/* projects.css */
-
-/* 适用于projects.html的独特样式 */
 .container-projects {
     display: flex;
     justify-content: space-between;
@@ -18,7 +15,7 @@
     justify-content: center;
     align-items: center;
     margin-top: 60px;
-    width: 33%; /* 占据页面的左1/3 */
+    width: 33%; 
 }
 
 #game {
@@ -141,7 +138,7 @@
 }
 
 .sidebar.expanded {
-    width: 30vw; /* 展开时宽度为视窗宽度的30% */
+    width: 30vw; 
     justify-content: flex-start;
     cursor: default;
 }
@@ -163,20 +160,20 @@
     list-style-type: none;
     padding: 0;
     margin: 0;
-    overflow: hidden; /* 确保折叠时隐藏内容 */
+    overflow: hidden; 
     max-height: 0;
     transition: max-height 0.5s ease-in-out;
 }
 
 .sidebar.expanded ul {
     max-height: 1000px;
-    width: 100%; /* 使链接选项适应侧边栏的宽度 */
+    width: 100%; 
 }
 
 .sidebar ul li {
     padding: 10px;
     text-align: left;
-    width: 100%; /* 确保列表项适应侧边栏的宽度 */
+    width: 100%; 
 }
 
 .sidebar ul li a {
@@ -185,7 +182,7 @@
     display: block;
     transition: 0.3s;
     padding: 10px;
-    width: 90%; /* 确保链接选项适应侧边栏的宽度 */
+    width: 90%; 
 }
 
 .sidebar ul li a.active {
@@ -211,7 +208,6 @@
     width: 80%;
 }
 
-/* 特殊按钮样式 */
 .special-button {
     background-color: white;
     color: black;
@@ -222,7 +218,7 @@
     padding: 10px;
     border-radius: 5px;
     transition: background-color 0.3s, color 0.3s, transform 0.3s ease-in-out;
-    width: 80%; /* 按钮宽度为侧边栏宽度的80% */
+    width: 80%; 
     position: relative;
 }
 

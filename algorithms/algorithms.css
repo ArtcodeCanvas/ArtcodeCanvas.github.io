@@ -30,7 +30,7 @@ body {
     overflow: hidden;
     background-color: #333;
     cursor: pointer; /* 添加鼠标指针效果 */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 悬停动画 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .lesson10 {

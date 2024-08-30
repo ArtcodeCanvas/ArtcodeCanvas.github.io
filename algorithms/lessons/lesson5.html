@@ -79,17 +79,14 @@
                 }
 
                 ctx.closePath();
-                ctx.strokeStyle = color; // 根据传入的颜色绘制边
+                ctx.strokeStyle = color; 
                 ctx.stroke();
             }
 
-            // 绘制六颗星星的魔法阵
             function drawHexagram() {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
                 starPositions = [];
-
-                // 判断是否要绘制随机颜色的边
                 let edgeColor = (currentStarIndex > 1) ? getRandomColor() : 'white';
 
                 for (let i = 0; i < 6; i++) {
@@ -104,7 +101,6 @@
                 drawStars();
             }
 
-            // 绘制所有星星或月亮
             function drawStars() {
                 for (let i = 0; i < starPositions.length; i++) {
                     let { x, y } = starPositions[i];
@@ -124,7 +120,6 @@
                 }
             }
 
-            // 生成随机颜色
             function getRandomColor() {
                 let letters = '0123456789ABCDEF';
                 let color = '#';
@@ -134,18 +129,14 @@
                 return color;
             }
 
-            // 封装的函数：将当前星星替换为月亮
+            // 将当前星星替换为月亮
             function changeStarToMoon() {
                 if (currentStarIndex < starPositions.length) {
                     currentStarIndex++;
-                    drawHexagram(); // 每次替换星星时，重新绘制整个图案
+                    drawHexagram(); 
                 }
             }
-
-            // 设置画笔样式
             ctx.lineWidth = 2;
-
-            // 绘制六颗星星的魔法阵
             drawHexagram();
 
     </script>

@@ -55,85 +55,75 @@
     <script src="/js/init_editor.js"></script>
     <script src="/js/bubble.js"></script>
     <script>
-        var canvas = document.getElementById("myCanvas"); // 获取页面上的画布元素
-        var ctx = canvas.getContext("2d"); // 获取2D绘图环境
-        ctx.clearRect(0, 0, 500, 500); // 清除画布上的内容，为新绘制的图形腾出空间
+        var canvas = document.getElementById("myCanvas"); 
+        var ctx = canvas.getContext("2d"); 
+        ctx.clearRect(0, 0, 500, 500); 
         var sun,moon,star,child;
         
-        // 示例图像对象，可以根据需要替换成实际资源路径
         var sunImage = new Image(); 
-        sunImage.src = '/resources/sun.png'; // 设置太阳图片路径
+        sunImage.src = '/resources/sun.png'; 
         
         var moonImage = new Image(); 
-        moonImage.src = '/resources/moon.png'; // 设置月亮图片路径
+        moonImage.src = '/resources/moon.png';
         
         var starImage = new Image(); 
-        starImage.src = '/resources/achievement-star.png'; // 设置星星图片路径
+        starImage.src = '/resources/achievement-star.png'; 
 
         var dimstarImage = new Image(); 
-        dimstarImage.src = '/resources/achievement-star.png'; // 设置星星图片路径
+        dimstarImage.src = '/resources/achievement-star.png'; 
         
         var happyChildImage = new Image(); 
-        happyChildImage.src = '/resources/happy-child.png'; // 设置快乐小朋友图片路径
+        happyChildImage.src = '/resources/happy-child.png'; 
         
         var sadChildImage = new Image(); 
-        sadChildImage.src = '/resources/sad-child.png'; // 设置不快乐小朋友图片路径
+        sadChildImage.src = '/resources/sad-child.png'; 
         
-        // 明亮的星星图片
         var brightStarImage = new Image();
         brightStarImage.src = '/resources/achievement-star.png';
         
-        // 云朵图片
         var cloudImage = new Image();
         cloudImage.src = '/resources/cloud.png';
         
-        // 定义绘制太阳的函数
         function drawSun() {
             sun = 1,moon = 0,star = 0,child = 0;
-            ctx.drawImage(sunImage, 100, 150, 100, 100); // 在画布上绘制太阳
+            ctx.drawImage(sunImage, 100, 150, 100, 100); 
         }
         
-        // 定义绘制月亮和星星的函数
         function drawMoonAndStar() {
             sun = 0,moon = 2,star = 2,child = 0;
-            ctx.drawImage(moonImage, 300, 150, 100, 100); // 在画布上绘制月亮
-            ctx.drawImage(starImage, 320, 160, 50, 50); // 绘制星星
+            ctx.drawImage(moonImage, 300, 150, 100, 100); 
+            ctx.drawImage(starImage, 320, 160, 50, 50); 
         }
         
-        // 定义绘制快乐小朋友的函数
         function drawHappyChild() {
             child = 2;
-            ctx.drawImage(happyChildImage, 100, 330, 130, 150); // 在画布上绘制快乐的小朋友
+            ctx.drawImage(happyChildImage, 100, 330, 130, 150); 
         }
         
-        // 定义绘制不快乐小朋友的函数
         function drawSadChild() {
             child = 1;
-            ctx.drawImage(sadChildImage, 300, 300, 200, 200); // 在画布上绘制不快乐的小朋友
+            ctx.drawImage(sadChildImage, 300, 300, 200, 200); 
         }
         
         function drawBrightStar() {
             sun = 0,star = 2,child = 0;
-            ctx.drawImage(starImage, 320, 160, 50, 50); // 绘制星星
+            ctx.drawImage(starImage, 320, 160, 50, 50); 
         }
         
-        // 绘制暗淡的星星
         function drawDimStar() {
             sun = 0,star = 1,child = 0;
-            ctx.drawImage(dimstarImage, 320, 160, 50, 50); // 绘制星星
+            ctx.drawImage(dimstarImage, 320, 160, 50, 50); 
         }
         
-        // 绘制月亮
         function drawMoon() {
             sun = 0,moon = 2,child = 0;
-            ctx.drawImage(moonImage, 300, 150, 100, 100); // 在指定位置绘制月亮
+            ctx.drawImage(moonImage, 300, 150, 100, 100); 
         }
         
-        // 绘制被云遮住的月亮
         function drawHiddenMoon() {
             sun = 0,moon = 1,child = 0;
             ctx.drawImage(moonImage, 300, 150, 100, 100)
-            ctx.drawImage(cloudImage, 280, 180, 120, 80); // 在月亮上绘制云朵
+            ctx.drawImage(cloudImage, 280, 180, 120, 80); 
         }
         
     </script>

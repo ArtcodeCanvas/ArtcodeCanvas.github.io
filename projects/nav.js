@@ -75,12 +75,12 @@ function triggerFirstLoadAnimation() {
     const toggleButton = document.getElementById('toggle-sidebar');
 
     if (sidebar && overlay && toggleButton) {
-        sidebar.classList.add('first-load'); // 触发首次加载的动画
+        sidebar.classList.add('first-load'); 
         setTimeout(() => {
             sidebar.classList.remove('first-load');
             sidebar.classList.add('expanded');
             overlay.classList.remove('hidden');
             toggleButton.textContent = '☰ 目录';
-        }, 500); // 动画持续 0.5 秒后设置为展开状态
+        }, 500); 
     }
 }

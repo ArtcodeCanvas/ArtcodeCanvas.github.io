@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // 从 Web Storage 中获取成就信息，如果不存在则初始化一个全为 0 的数组
     let achievements = JSON.parse(localStorage.getItem('achievements'));
-    if (!achievements || achievements.length !== 10) { // 假设有 10 个成就
+    if (!achievements || achievements.length !== 10) { 
         achievements = Array(10).fill(0);
         localStorage.setItem('achievements', JSON.stringify(achievements));
     }
@@ -13,14 +12,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const starContainer = document.createElement('div');
         starContainer.classList.add('star-container');
         starContainer.style.setProperty('--random-height', Math.random()); // 随机高度
-        starContainer.style.left = `${20 + index * 140}px`; // 设置水平排列
+        starContainer.style.left = `${20 + index * 140}px`; 
 
         starContainer.dataset.lesson = `lesson${index + 1}`;
         const isAnimationEnabled = stars !== 0;
 
-        // 为整个容器的星星生成一个固定的起始高度
         const maxY = 50;
-        const startY = isAnimationEnabled ? Math.random() * maxY : 0; // 仅当启用动画时生成随机高度
+        const startY = isAnimationEnabled ? Math.random() * maxY : 0; 
 
         for (let i = 0; i < 3; i++) {
             const star = document.createElement('div');

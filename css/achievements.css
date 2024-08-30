@@ -1,9 +1,6 @@
-/* achievements.css */
-
-/* 设置成就页面的背景 */
 body {
-    background-image: url('/resources/achievements_background.png'); /* 更新路径 */
-    background-size: cover; /* 确保背景图片覆盖整个页面 */
+    background-image: url('/resources/achievements_background.png'); 
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -13,7 +10,6 @@ body {
     flex-direction: column;
 }
 
-/* 设置header的背景颜色为透明 */
 header {
     background-color: transparent;
     padding: 20px 0;
@@ -21,20 +17,20 @@ header {
 
 .star-container {
     display: inline-block;
-    margin-right: 10px; /* 减少容器之间的间距 */
+    margin-right: 10px; 
     position: absolute;
-    top: calc(30% + 20vh * var(--random-height)); /* 30%-50% 高度之间 */
+    top: calc(30% + 20vh * var(--random-height)); 
     left: 0;
     right: 0;
     text-align: center;
-    width: 80px; /* 容器的固定宽度，进一步减小 */
-    height: 80px; /* 容器的固定高度，进一步减小 */
-    cursor: pointer; /* 鼠标悬停时显示手形 */
+    width: 80px; 
+    height: 80px; 
+    cursor: pointer; 
 }
 
 .star {
-    width: 35px; /* 星星宽度，进一步减小 */
-    height: 35px; /* 星星高度，进一步减小 */
+    width: 35px; 
+    height: 35px; 
     background-image: url('/resources/achievement-star.png'); 
     background-size: contain;
     background-repeat: no-repeat;
@@ -45,31 +41,28 @@ header {
 }
 
 .star-container .achievement-name {
-    margin-top: 50px; /* 调整成就名称的位置以适应缩小后的容器 */
+    margin-top: 50px; 
     margin-left: 23%;
-    font-size: 12px; /* 进一步减小字体大小 */
+    font-size: 12px; 
     color: white;
-    opacity: 0; /* 默认隐藏 */
+    opacity: 0; 
     transition: opacity 0.3s ease-in-out;
     position: relative;
-    z-index: 1; /* 确保成就名称在星星之上 */
+    z-index: 1;
 }
 
-/* 禁用动画的星星 */
 .star.no-animation {
     animation: none;
-    /* 保留 transition 以确保悬停时效果正常 */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-/* 悬停时效果 */
 .star-container:hover .achievement-name {
-    opacity: 1; /* 显示成就名称 */
+    opacity: 1; 
 }
 
 .star-container:hover .star {
-    animation-play-state: paused; /* 暂停星星动画 */
-    transform: scale(1.2); /* 星星放大 */
+    animation-play-state: paused; 
+    transform: scale(1.2);
 }
 
 /* 星星移动动画 */

@@ -50,6 +50,6 @@ function drawPic() {
         curr_pixel = pixels[i]; // 📍 获取当前像素
         
         ctx.fillStyle = curr_pixel.fillStyle; // 🎨 设置像素颜色
-        ctx.fillRect(curr_pixel.x, curr_pixel.y, 1, 1); // 🖌️ 绘制像素（一个小矩形）
+        ctx.fillRect(curr_pixel.x, curr_pixel.y, 1, 1); // 🖌️ 绘制像素（一个矩形）
     }
 }
