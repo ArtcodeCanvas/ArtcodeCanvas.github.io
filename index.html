@@ -21,11 +21,11 @@
 
         <div id="controls">
             <div id="menu-bar">
-                <div class="menu-item" id="info-path">信息传播途径
-                    <div class="dropdown" id="info-path-dropdown">
+                <div class="menu-item" id="widest-path">信息扩散模拟
+                    <!-- <div class="dropdown" id="info-path-dropdown">
                         <div class="dropdown-item" id="shortest-path">最短传播</div>
-                        <div class="dropdown-item" id="widest-path">最广传播</div>
-                    </div>
+                        <div class="dropdown-item" id="widest-path">信息扩散模拟</div>
+                    </div> -->
                 </div>
                 <div class="menu-item" id="key-person">关键人物
                 </div>
@@ -36,7 +36,7 @@
             <div id="query-section">
                 <h3>功能介绍</h3>
                 <ul>
-                    <li><b>最短传播路径：</b> 查找两节点之间传播距离最短的路径。</li>
+                    <!-- <li><b>最短传播路径：</b> 查找两节点之间传播距离最短的路径。</li> -->
                     <li><b>单源传播模拟：</b> 查找从起点出发，给定传播时间内能覆盖的节点。</li>
                     <li><b>度中心性：</b> 衡量节点直接连接的边数，显示节点在网络中的重要性。</li>
                     <li><b>介数中心性：</b> 衡量节点处于其他节点路径中的重要程度，分析信息流关键节点。</li>
@@ -118,9 +118,9 @@
             }
         });
 
-        document.getElementById('shortest-path').addEventListener('click', () => {
-            window.loadSection('functions/shortest_path.html', 'query-section', 'result-section');
-        });
+        // document.getElementById('shortest-path').addEventListener('click', () => {
+        //     window.loadSection('functions/shortest_path.html', 'query-section', 'result-section');
+        // });
         document.getElementById('widest-path').addEventListener('click', () => {
             loadSection('functions/widest_path.html', 'query-section', 'result-section');
         });
