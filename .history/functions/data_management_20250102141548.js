@@ -1,3 +1,5 @@
+console.log("data_management.js loaded!");
+
 const uploadInput = document.getElementById('upload-data');
 const downloadBtn = document.getElementById('download-json-btn');
 const applyBtn = document.getElementById('apply-json-btn');
@@ -6,6 +8,7 @@ const fileNameDisplay = document.getElementById('file-name');
 
 let formattedData = null;
 
+// 文件上传事件监听
 uploadInput.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (!file) {
@@ -31,6 +34,7 @@ uploadInput.addEventListener('change', (event) => {
     reader.readAsText(file);
 });
 
+// 下载 JSON 数据
 downloadBtn.addEventListener('click', () => {
     if (!formattedData) {
         alert("请先上传有效数据！");
@@ -43,6 +47,7 @@ downloadBtn.addEventListener('click', () => {
     link.click();
 });
 
+// 应用 JSON 数据到图
 applyBtn.addEventListener('click', () => {
     if (!formattedData) {
         alert("请先上传有效数据！");
@@ -62,6 +67,7 @@ applyBtn.addEventListener('click', () => {
     }
 });
 
+// CSV 转换为 JSON
 function CSVToJson(csvData) {
     const rows = csvData.trim().split("\n").map(row => row.split(","));
     const size = rows.length;

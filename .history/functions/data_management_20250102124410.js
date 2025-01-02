@@ -1,8 +1,9 @@
+console.log("data_management.js loaded!");
+
 const uploadInput = document.getElementById('upload-data');
 const downloadBtn = document.getElementById('download-json-btn');
 const applyBtn = document.getElementById('apply-json-btn');
 const statusText = document.getElementById('upload-status');
-const fileNameDisplay = document.getElementById('file-name');
 
 let formattedData = null;
 
@@ -10,22 +11,19 @@ uploadInput.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (!file) {
         statusText.textContent = "状态：未选择文件";
-        fileNameDisplay.textContent = "未选择文件";
         return;
     }
-
-    fileNameDisplay.textContent = file.name;
 
     const reader = new FileReader();
     reader.onload = (e) => {
         try {
             const csvData = e.target.result;
-            formattedData = CSVToJson(csvData);
+            formattedDat(csvData);
             statusText.textContent = "状态：数据上传成功！可以下载或应用数据。";
-            console.log("Formatted Data:", formattedData);
+            console.log("Formatted Data:", formattedData); 
         } catch (error) {
             statusText.textContent = `状态：上传失败 - ${error.message}`;
-            console.error("Upload Error:", error);
+            // console.error("Upload Error:", error);
         }
     };
     reader.readAsText(file);
