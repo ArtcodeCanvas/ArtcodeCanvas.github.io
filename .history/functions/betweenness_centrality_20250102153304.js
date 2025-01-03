@@ -1,3 +1,5 @@
+console.log("betweenness_centrality.js加载完成");
+
 /**
  * 使用弗洛伊德算法计算图中所有节点的介数中心性
  * @param {object} graphData - 图数据 { nodes: [], edges: [] }

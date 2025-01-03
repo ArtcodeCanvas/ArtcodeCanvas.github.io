@@ -99,6 +99,7 @@
             updateVertex(result, cutVertexLabels, graphData);
         });
 
+        // 更新可视化界面：割点分析
         function updateVertex(result, labels, graphData) {
             cy.nodes().forEach(node => {
                 const id = node.id();
