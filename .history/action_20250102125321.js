@@ -87,7 +87,9 @@ function initialVisual() {
     toggleIds.addEventListener('change', (event) => {
         const isChecked = event.target.checked;
         cy.nodes().forEach(node => {
-            const label = isChecked ? `${node.id()} ${node.data('label')}`: node.data('label');
+            const label = isChecked
+                ? `${node.id()} ${node.data('label')}`
+                : node.data('label');
             node.style('label', label);
         });
     });

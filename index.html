@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Graph Query</title>
+    <title>NetVise——简易的社交网络可视化系统</title>
     <link rel="stylesheet" href="styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.22.0/dist/cytoscape.min.js"></script>
 
@@ -21,6 +21,7 @@
 
         <div id="controls">
             <div id="menu-bar">
+                <div class="menu-item" id="inform">概述</div>
                 <div class="menu-item" id="widest-path">信息扩散模拟
                     <!-- <div class="dropdown" id="info-path-dropdown">
                         <div class="dropdown-item" id="shortest-path">最短传播</div>
@@ -121,6 +122,9 @@
         // document.getElementById('shortest-path').addEventListener('click', () => {
         //     window.loadSection('functions/shortest_path.html', 'query-section', 'result-section');
         // });
+        document.getElementById('inform').addEventListener('click', () => {
+            loadSection('functions/inform.html', 'query-section', 'result-section');
+        });
         document.getElementById('widest-path').addEventListener('click', () => {
             loadSection('functions/widest_path.html', 'query-section', 'result-section');
         });
@@ -133,14 +137,13 @@
             });
         });
         document.getElementById('data-management').addEventListener('click', () => {
-
-    window.loadSection(
-        'functions/data_management.html', 
-        'query-section',
-        'result-section',
-        './functions/data_management.js' 
-    );
-});
+            window.loadSection(
+                'functions/data_management.html', 
+                'query-section',
+                'result-section',
+                './functions/data_management.js' 
+            );
+        });
 
     </script>
 </body>

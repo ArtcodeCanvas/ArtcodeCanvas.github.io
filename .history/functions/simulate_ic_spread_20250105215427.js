@@ -1,4 +1,6 @@
 (function () {
+    // console.log("simulate_ic_spread.js is loaded! Ready for IC Spread Simulation.");
+
     let activatedNodes = new Set();
     let activeNodes = [];
     let states = {};

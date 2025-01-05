@@ -164,20 +164,24 @@ input:focus {
 }
 
 /* 按钮 */
-button {
-    padding: 10px;
-    margin: 5px;
-    width: 100%;
-    cursor: pointer;
-    background-color: #007BFF;
+.btn {
+    margin-left: 0px;
+    margin-top: 10px;
+    padding: 8px 15px;
+    background-color: #007BFF; /* 蓝色背景 */
     color: white;
     border: none;
-    border-radius: 8px;
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), 2px 2px 5px rgba(255, 255, 255, 0.6);
+    border-radius: 12px; /* 圆角设计 */
+    cursor: pointer;
+    font-size: 14px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1), inset 1px 1px 4px rgba(255, 255, 255, 0.5); /* 拟态阴影 */
+    transition: all 0.3s ease; /* 平滑过渡 */
 }
 
-button:hover {
-    background-color: #0056b3;
+.btn:hover {
+    background-color: #0056b3; /* 蓝色按钮悬浮效果 */
+    box-shadow: 3px 3px 12px rgba(0, 0, 0, 0.2), inset 2px 2px 5px rgba(255, 255, 255, 0.4); /* 更强的阴影效果 */
+    transform: translateY(-2px); /* 悬浮时轻微浮动 */
 }
 
 /* 自动完成下拉菜单 */

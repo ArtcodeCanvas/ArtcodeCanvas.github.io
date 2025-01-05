@@ -1,5 +1,6 @@
+console.log("cut_vertex.js is loaded! Ready to calculate cut vertices.");
 
-/** 
+/**
  * 使用 Tarjan 算法计算图中的割点
  * @param {Object} graphData 图数据 { nodes: [], edges: [] }
  * @returns {Array} 返回所有割点的 ID 列表
@@ -15,7 +16,6 @@ function CutVertex(graphData) {
     const isCutVertex = {};
     let idx = 0;
 
-
     graphData.nodes.forEach(node => {
         adj[node.data.id] = [];
         dfn[node.data.id] = -1;
@@ -23,7 +23,6 @@ function CutVertex(graphData) {
         vis[node.data.id] = false;
         isCutVertex[node.data.id] = false;
     });
-
 
     graphData.edges.forEach(edge => {
         adj[edge.data.source].push(edge.data.target);
@@ -48,7 +47,6 @@ function CutVertex(graphData) {
                 tarjan(v, u);
                 low[u] = Math.min(low[u], low[v]);
 
-
                 if (parent !== null && low[v] >= dfn[u]) {
                     isCutVertex[u] = true;
                 }
@@ -62,20 +60,18 @@ function CutVertex(graphData) {
         });
     }
 
-
     graphData.nodes.forEach(node => {
         const id = node.data.id;
         if (!vis[id]) {
-            tarjan(id, null); 
+            tarjan(id, null);
         }
     });
 
-
     const result = graphData.nodes
         .filter(node => isCutVertex[node.data.id])
-        .map(node => node.data.id); 
+        .map(node => node.data.id);
 
-    // console.log("割点 ", result); 
+    console.log("Cut Vertices:", result);
     return result;
 }
 

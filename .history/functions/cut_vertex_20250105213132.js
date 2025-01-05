@@ -75,7 +75,7 @@ function CutVertex(graphData) {
         .filter(node => isCutVertex[node.data.id])
         .map(node => node.data.id); 
 
-    // console.log("割点 ", result); 
+    console.log("割点 ", result); 
     return result;
 }
 

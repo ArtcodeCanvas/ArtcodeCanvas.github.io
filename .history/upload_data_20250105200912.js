@@ -1,7 +1,3 @@
-// content: 包含社交网络数据的对象，包含了网络的节点（成员）和边（成员之间的关系）。
-// cy: Cytoscape.js 实例
-// graphData: 一个对象，用来存储图形的数据，节点和边等
-
 function parseAndDrawGraph(content, cy, graphData) {
     graphData.nodes = content.members.map(member => ({
         data: {

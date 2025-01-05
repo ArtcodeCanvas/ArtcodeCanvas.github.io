@@ -1,0 +1,33 @@
+<!-- <div id="query-section">
+    <h3>功能介绍</h3>
+    <ul>
+        <li><b>单源传播模拟：</b> 查找从起点出发，给定传播时间内能覆盖的节点。</li>
+        <li><b>度中心性：</b> 衡量节点直接连接的边数，显示节点在网络中的重要性。</li>
+        <li><b>介数中心性：</b> 衡量节点处于其他节点路径中的重要程度，分析信息流关键节点。</li>
+        <li><b>割点：</b> 找到删除后会导致网络分裂的关键节点。</li>
+        <li><b>可视化选项：</b> 控制节点颜色、是否显示序号等可视化设置。</li>
+        <li><b>数据管理：</b> 管理和上传新的数据集。</li>
+    </ul>
+</div>
+<div id="result-section">
+    <h3>查询结果</h3>
+    <div id="result">在此显示数据分析结果</div>
+</div> -->
+
+<body>
+    <div id="query-content">
+        <h3>数据管理</h3>
+        <p>上传数据，格式化为符合要求的 JSON 格式。</p>
+
+        <label for="upload-data" class="custom-button">选择文件</label>
+        <input type="file" id="upload-data" accept=".csv" style="display: none;">
+        <span id="file-name">未选择文件</span>
+
+        <button id="download-json-btn" class="btn">下载 JSON 数据</button>
+        <button id="apply-json-btn" class="btn">应用数据</button>
+        <p id="upload-status">状态：等待上传数据</p>
+    </div>
+    <div id="result-content"></div>
+
+    <script src="functions/data_management.js"></script>
+</body>
