@@ -4,6 +4,8 @@
  * @returns {Array} 返回按度中心性排序的节点列表
  */
 function DegreeCentrality(graphData) {
+    console.log("DegreeCentrality called with:", graphData);
+
     const degrees = {};
     graphData.nodes.forEach(node => {
         degrees[node.data.id] = 0;
@@ -21,6 +23,8 @@ function DegreeCentrality(graphData) {
     }));
 
     result.sort((a, b) => b.degree - a.degree);
+
+    console.log("Degree Centrality Result:", result);
     return result;
 }
 
