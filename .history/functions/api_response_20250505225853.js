@@ -11,7 +11,7 @@ document.getElementById("submit-novel-btn").addEventListener("click", async () =
     status.textContent = "状态：请求中，请稍候...";
     output.style.display = "none";
 
-    const prompt = `请从小说《${titleInput}》中提取10~15位主要人物以及他们之间的关系强度，关系强度（weight）范围从1~5，并返回如下格式的JSON：
+    const prompt = `请从小说《${titleInput}》中提取十位主要人物以及他们之间的关系强度，并返回如下格式的JSON：
 {
   "members": [
     {"id": "1", "name": "人物1"},

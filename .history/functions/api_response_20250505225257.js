@@ -11,7 +11,7 @@ document.getElementById("submit-novel-btn").addEventListener("click", async () =
     status.textContent = "状态：请求中，请稍候...";
     output.style.display = "none";
 
-    const prompt = `请从小说《${titleInput}》中提取10~15位主要人物以及他们之间的关系强度，关系强度（weight）范围从1~5，并返回如下格式的JSON：
+    const prompt = `请从小说《${titleInput}》中提取十位主要人物以及他们之间的关系强度，并返回如下格式的JSON：
 {
   "members": [
     {"id": "1", "name": "人物1"},
@@ -26,11 +26,10 @@ document.getElementById("submit-novel-btn").addEventListener("click", async () =
 只返回JSON格式内容，不要添加任何其他说明文字。`;
 
     try {
-        const response = await fetch("https://api-inference.modelscope.cn/v1/chat/completions", {
+        const response = await fetch("http://47.116.66.47:8000/chat", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
-                "Authorization": "Bearer e8e30449-5622-4486-aeb9-e44e45badd78"
+                "Content-Type": "application/json"
             },
             body: JSON.stringify({
                 model: "Qwen/Qwen2.5-7B-Instruct",
@@ -58,6 +57,6 @@ document.getElementById("submit-novel-btn").addEventListener("click", async () =
         status.textContent = "状态：提取成功，结果已显示";
     } catch (error) {
         console.error("API调用失败：", error);
-        status.textContent = "状态：提取失败，请检查网络或稍后重试";
+        status.textContent = "状态：提取失败，请检查服务器或稍后重试";
     }
 });
