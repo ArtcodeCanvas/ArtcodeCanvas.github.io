@@ -38,7 +38,7 @@
             });
 
             activeNodes = [...newActive];
-            lastActiveNodes = [...newActive];
+            lastActiveNodes =[newActive];
             newActive.length = 0;
 
             updateIC(activatedNodes, lastActiveNodes, startId);
@@ -46,7 +46,6 @@
 
         return activatedNodes;
     };
-
     window.updateIC = function (activatedNodes, currentActive, startId) {
         const cy = window.cy;
         cy.nodes().forEach(node => {
@@ -55,6 +54,15 @@
             else if (currentActive.includes(nodeId)) node.style('background-color', 'violet');
             else if (activatedNodes.has(nodeId)) node.style('background-color', 'deeppink');
             else node.style('background-color', 'rgb(255, 205, 113)');
+        });
+        cy.edges().forEach(edge => {
+            const sourceId = edge.source().id();
+            const targetId = edge.target().id();
+            if (activatedNodes.has(sourceId) && activatedNodes.has(targetId)) {
+                edge.style('opacity', 1);
+            } else {
+                edge.style('opacity', 0.2);
+            }
         });
     };
 
