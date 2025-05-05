@@ -50,23 +50,18 @@
         </div>
 
         <!-- 新增模块 -->
-        <div id="novel-extract-content">
+        <div id="novel-extract-content" style="margin-top: 60px; clear: both;">
             <h3>小说人物关系提取</h3>
             <p>请输入一本小说的名称，系统将返回该小说中的主要人物关系图。</p>
             <input type="text" id="novel-title-input" placeholder="例如：《红楼梦》" style="width: 300px; padding: 6px;">
             <button id="submit-novel-btn" class="btn">提交</button>
             <p id="novel-status">状态：等待输入小说名称</p>
 
-            <div id="novel-action-buttons" style="margin-top: 10px;">
-                <button id="novel-download-json-btn" class="btn">下载 JSON 数据</button>
-                <button id="novel-apply-json-btn" class="btn">应用数据</button>
-            </div>
-
             <pre id="json-output" style="white-space: pre-wrap; background: #f7f7f7; padding: 10px; margin-top: 20px; display: none;"></pre>
         </div>
     </div>
 
-    <script src="functions/data_management.js"></script>
+    <script src="data_management.js"></script>
     <script src="functions/api_response.js"></script>
 </body>
 </html>

@@ -181,7 +181,7 @@ button:hover {
 }
 
 /* 自动完成下拉菜单 */
-.autocomplete-dropdown {
+/* .autocomplete-dropdown {
     position: absolute;
     background-color: #fff;
     border: 1px solid #ccc;
@@ -199,7 +199,7 @@ button:hover {
 
 .autocomplete-item:hover {
     background-color: #ddd;
-}
+} */
 
 /* 结果内容 */
 #result-content {
@@ -209,6 +209,20 @@ button:hover {
     margin-top: 10px;
     border-radius: 8px;
     box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.1), 2px 2px 5px rgba(255, 255, 255, 0.6);
+}
+
+/* #result-content {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin-top: 10px;
+} */
+
+#novel-extract-content {
+    padding: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    margin-top: 10px;
 }
 
 /* 节点标签 */
@@ -316,7 +330,7 @@ input:checked + .slider:before {
     padding: 8px 20px;
     font-size: 16px;
     color: white;
-    background-color: #81ff9e;
+    background-color: #28a745;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -326,7 +340,7 @@ input:checked + .slider:before {
 }
 
 .custom-button:hover {
-    background-color: #4bb862;
+    background-color: #218838;
 }
 
 #file-name {

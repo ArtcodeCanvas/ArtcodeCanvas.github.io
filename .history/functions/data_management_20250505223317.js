@@ -1,5 +1,3 @@
-console.log("data_management.js loaded!");
-
 const uploadInput = document.getElementById('upload-data');
 const downloadBtn = document.getElementById('download-json-btn');
 const applyBtn = document.getElementById('apply-json-btn');
@@ -8,7 +6,6 @@ const fileNameDisplay = document.getElementById('file-name');
 
 let formattedData = null;
 
-// 文件上传事件监听
 uploadInput.addEventListener('change', (event) => {
     const file = event.target.files[0];
     if (!file) {
@@ -34,7 +31,6 @@ uploadInput.addEventListener('change', (event) => {
     reader.readAsText(file);
 });
 
-// 下载 JSON 数据
 downloadBtn.addEventListener('click', () => {
     if (!formattedData) {
         alert("请先上传有效数据！");
@@ -47,7 +43,6 @@ downloadBtn.addEventListener('click', () => {
     link.click();
 });
 
-// 应用 JSON 数据到图
 applyBtn.addEventListener('click', () => {
     if (!formattedData) {
         alert("请先上传有效数据！");
@@ -67,7 +62,6 @@ applyBtn.addEventListener('click', () => {
     }
 });
 
-// CSV 转换为 JSON
 function CSVToJson(csvData) {
     const rows = csvData.trim().split("\n").map(row => row.split(","));
     const size = rows.length;
@@ -114,3 +108,38 @@ function CSVToJson(csvData) {
         relationships: relationships
     };
 }
+
+// =============== 小说人物提取相关功能 ===============
+const novelDownloadBtn = document.getElementById('novel-download-json-btn');
+const novelApplyBtn = document.getElementById('novel-apply-json-btn');
+
+novelDownloadBtn.addEventListener('click', () => {
+    if (!window.novelExtractedData) {
+        alert("请先提取小说人物关系数据！");
+        return;
+    }
+    const blob = new Blob([JSON.stringify(window.novelExtractedData, null, 2)], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'novel_characters.json';
+    link.click();
+});
+
+novelApplyBtn.addEventListener('click', () => {
+    if (!window.novelExtractedData) {
+        alert("请先提取小说人物关系数据！");
+        return;
+    }
+    if (window.parseAndDrawGraph) {
+        window.parseAndDrawGraph(window.novelExtractedData, window.cy, window.graphData);
+        window.cy.layout({
+            name: 'breadthfirst',
+            directed: true,
+            spacingFactor: 1.5,
+            avoidOverlap: true
+        }).run();
+        document.getElementById("novel-status").textContent = "状态：小说关系图已成功应用到图形！";
+    } else {
+        alert("应用数据失败，请检查系统功能！");
+    }
+});

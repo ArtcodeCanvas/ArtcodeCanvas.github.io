@@ -108,3 +108,38 @@ function CSVToJson(csvData) {
         relationships: relationships
     };
 }
+
+// =============== 小说人物提取相关功能 ===============
+const novelDownloadBtn = document.getElementById('novel-download-json-btn');
+const novelApplyBtn = document.getElementById('novel-apply-json-btn');
+
+novelDownloadBtn.addEventListener('click', () => {
+    if (!window.novelExtractedData) {
+        alert("请先提取小说人物关系数据！");
+        return;
+    }
+    const blob = new Blob([JSON.stringify(window.novelExtractedData, null, 2)], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'novel_characters.json';
+    link.click();
+});
+
+novelApplyBtn.addEventListener('click', () => {
+    if (!window.novelExtractedData) {
+        alert("请先提取小说人物关系数据！");
+        return;
+    }
+    if (window.parseAndDrawGraph) {
+        window.parseAndDrawGraph(window.novelExtractedData, window.cy, window.graphData);
+        window.cy.layout({
+            name: 'breadthfirst',
+            directed: true,
+            spacingFactor: 1.5,
+            avoidOverlap: true
+        }).run();
+        document.getElementById("novel-status").textContent = "状态：小说关系图已成功应用到图形！";
+    } else {
+        alert("应用数据失败，请检查系统功能！");
+    }
+});
