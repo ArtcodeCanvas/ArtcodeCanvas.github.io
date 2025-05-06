@@ -80,29 +80,28 @@ window.loadSection = async function (url, queryContainerId, resultContainerId) {
 
 function initialVisual() {
     const toggleIds = document.getElementById('toggle-ids');
-    const colorBoxes = document.querySelectorAll('.color-box');
-
+    const palettes = document.querySelectorAll('.palette');
     const cy = window.cy;
-
+  
     toggleIds.addEventListener('change', (event) => {
-        const isChecked = event.target.checked;
-        cy.nodes().forEach(node => {
-            const label = isChecked
-                ? `${node.id()} ${node.data('label')}`
-                : node.data('label');
-            node.style('label', label);
-        });
+      const isChecked = event.target.checked;
+      cy.nodes().forEach(node => {
+        const label = isChecked ? `${node.id()} ${node.data('label')}` : node.data('label');
+        node.style('label', label);
+      });
     });
-
+  
     toggleIds.checked = false;
     toggleIds.dispatchEvent(new Event('change'));
-
-    colorBoxes.forEach(box => {
-        box.addEventListener('click', () => {
-            const selectedColor = box.getAttribute('data-color');
-            colorBoxes.forEach(b => b.classList.remove('selected'));
-            box.classList.add('selected');
-            cy.nodes().style('background-color', selectedColor);
+  
+    palettes.forEach(palette => {
+      palette.addEventListener('click', () => {
+        const colors = JSON.parse(palette.getAttribute('data-colors'));
+        cy.nodes().forEach(node => {
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          node.style('background-color', color);
         });
+      });
     });
-}
+  }
+  

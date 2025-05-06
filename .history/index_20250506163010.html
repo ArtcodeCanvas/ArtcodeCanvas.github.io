@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NetVise——简易的社交网络可视化系统</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.22.0/dist/cytoscape.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-cose-bilkent@4.0.0/cytoscape-cose-bilkent.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape@3.22.0/dist/cytoscape.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-cose-bilkent@4.0.0/cytoscape-cose-bilkent.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/cytoscape-graph-theory@1.0.3/cytoscape-graph-theory.min.js"></script>
+</head>
+<body>
+  <div id="main-container">
+    <div id="visualization">
+      <div id="cy"></div>
+      <div id="upload-section">
+        <input type="file" id="fileInput" accept=".json"/>
+      </div>
+    </div>
+
+    <div id="divider"></div>
+
+    <div id="controls">
+      <div id="menu-bar">
+        <div class="menu-item" id="inform">概述</div>
+        <div class="menu-item" id="widest-path">信息扩散模拟</div>
+        <div class="menu-item" id="key-person">关键人物</div>
+        <div class="menu-item" id="visualization-options">可视化选项</div>
+        <div class="menu-item" id="data-management">数据管理</div>
+      </div>
+
+      <div id="query-section">
+        <h3>功能介绍</h3>
+        <ul>
+          <li><b>单源传播模拟：</b> 查找从起点出发，给定传播时间内能覆盖的节点。</li>
+          <li><b>度中心性：</b> 衡量节点直接连接的边数，显示节点在网络中的重要性。</li>
+          <li><b>介数中心性：</b> 衡量节点处于其他节点路径中的重要程度，分析信息流关键节点。</li>
+          <li><b>割点：</b> 找到删除后会导致网络分裂的关键节点。</li>
+          <li><b>可视化选项：</b> 控制节点颜色、是否显示序号等可视化设置。</li>
+          <li><b>数据管理：</b> 管理和上传新的数据集。</li>
+        </ul>
+      </div>
+
+      <div id="result-section">
+        <h3>查询结果</h3>
+        <div id="result">在此显示数据分析结果</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="./action.js"></script>
+  <script src="./upload_data.js"></script>
+
+  <script>
+    cytoscape.use(cytoscapeCoseBilkent);
+    cytoscape.use(cytoscapeGraphTheory);
+
+    const divider = document.getElementById('divider');
+    const visualization = document.getElementById('visualization');
+    const controls = document.getElementById('controls');
+    const fileInput = document.getElementById('fileInput');
+
+    const cy = cytoscape({
+      container: document.getElementById('cy'),
+      elements: [],
+      style: [
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#f6b26b',
+      'label': 'data(label)',
+      'width': '50px',
+      'height': '50px',
+      'font-size': '28px',
+      'text-valign': 'top',
+      'text-halign': 'center',
+      'text-margin-y': -8
+    }
+  },
+  {
+    selector: 'edge',
+    style: {
+      'width': 5,
+      'line-color': '#ccc',
+      'label': 'data(label)',  // 👈 关键修改：显示关系与权重
+      'font-size': '18px',
+      'text-rotation': 'autorotate',
+      'text-margin-y': -4,
+      'target-arrow-shape': 'triangle',
+      'target-arrow-color': '#ccc',
+      'arrow-scale': 1.2
+    }
+  }
+]
+
+    });
+
+    const graphData = { nodes: [], edges: [] };
+    window.graphData = graphData;
+    window.cy = cy;
+
+    if (window.enableDragResize) {
+      window.enableDragResize(divider, visualization, controls);
+    }
+
+    fileInput.addEventListener('change', (event) => {
+      const file = event.target.files[0];
+      if (file && file.name.endsWith('.json')) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+          const content = JSON.parse(e.target.result);
+          if (window.parseAndDrawGraph) {
+            window.parseAndDrawGraph(content, cy, graphData);
+          }
+        };
+        reader.readAsText(file);
+      } else {
+        alert('请上传有效的 JSON 文件。');
+      }
+    });
+
+    document.getElementById('inform').addEventListener('click', () => {
+      loadSection('functions/inform.html', 'query-section', 'result-section');
+    });
+    document.getElementById('widest-path').addEventListener('click', () => {
+      loadSection('functions/widest_path.html', 'query-section', 'result-section');
+    });
+    document.getElementById('key-person').addEventListener('click', () => {
+      loadSection('functions/key_person.html', 'query-section', 'result-section');
+    });
+    document.getElementById('visualization-options').addEventListener('click', () => {
+      loadSection('visualization_options.html', 'query-section', 'result-section');
+    });
+    document.getElementById('data-management').addEventListener('click', () => {
+      loadSection('functions/data_management.html', 'query-section', 'result-section', 'functions/data_management.js');
+    });
+  </script>
+</body>
+</html>

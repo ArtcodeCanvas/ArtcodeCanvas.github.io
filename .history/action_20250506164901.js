@@ -80,27 +80,38 @@ window.loadSection = async function (url, queryContainerId, resultContainerId) {
 
 function initialVisual() {
     const toggleIds = document.getElementById('toggle-ids');
-    const colorBoxes = document.querySelectorAll('.color-box');
-
+    const palettes = document.querySelectorAll('.palette-row');
     const cy = window.cy;
-
+    let lastSelected = null;
+  
+    // 序号切换功能
     toggleIds.addEventListener('change', (event) => {
-        const isChecked = event.target.checked;
-        cy.nodes().forEach(node => {
-            const label = isChecked ? `${node.id()} ${node.data('label')}`: node.data('label');
-            node.style('label', label);
-        });
+      const isChecked = event.target.checked;
+      cy.nodes().forEach(node => {
+        const label = isChecked ? `${node.id()} ${node.data('label')}` : node.data('label');
+        node.style('label', label);
+      });
     });
-
+  
+    // 初始化时触发一次
     toggleIds.checked = false;
     toggleIds.dispatchEvent(new Event('change'));
-
-    colorBoxes.forEach(box => {
-        box.addEventListener('click', () => {
-            const selectedColor = box.getAttribute('data-color');
-            colorBoxes.forEach(b => b.classList.remove('selected'));
-            box.classList.add('selected');
-            cy.nodes().style('background-color', selectedColor);
+  
+    // 配色方案选择
+    palettes.forEach(palette => {
+      palette.addEventListener('click', () => {
+        const colors = JSON.parse(palette.getAttribute('data-colors'));
+  
+        // 将每个节点染成随机颜色
+        cy.nodes().forEach(node => {
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          node.style('background-color', color);
         });
+  
+        // 高亮选中项
+        if (lastSelected) lastSelected.classList.remove('selected');
+        palette.classList.add('selected');
+        lastSelected = palette;
+      });
     });
-}
+  }

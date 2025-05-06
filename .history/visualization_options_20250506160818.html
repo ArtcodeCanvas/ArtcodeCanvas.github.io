@@ -8,8 +8,6 @@
 <body>
     <div id="query-content">
         <h2>可视化选项</h2>
-
-        <!-- 显示节点 ID 开关 -->
         <div class="option-row">
             <label class="option-label">显示序号</label>
             <label class="switch">
@@ -17,19 +15,17 @@
                 <div class="slider round"></div>
             </label>
         </div>
-
-        <!-- 配色方案（由 JS 动态填充） -->
+    
         <div class="option-row">
             <label class="option-label">配色方案</label>
-            <div class="palette-list">
-                <!-- JavaScript 动态插入 -->
+            <div class="palette-container">
+                <div class="palette" data-colors='["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#9D4EDD", "#FF9F1C"]'></div>
+                <div class="palette" data-colors='["#264653", "#2A9D8F", "#E9C46A", "#F4A261", "#E76F51", "#B5838D"]'></div>
+                <div class="palette" data-colors='["#8ECAE6", "#219EBC", "#023047", "#FFB703", "#FB8500", "#F94144"]'></div>
             </div>
         </div>
-
-        <!-- 自动染色按钮
-        <button id="auto-color-button" class="btn">自动分组染色</button> -->
     </div>
-
+    
     <div id="result-content"></div>
 </body>
 </html>

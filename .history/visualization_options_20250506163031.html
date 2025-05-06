@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>可视化选项</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div id="query-content">
+        <h2>可视化选项</h2>
+        <div class="option-row">
+            <label class="option-label">显示序号</label>
+            <label class="switch">
+                <input type="checkbox" id="toggle-ids">
+                <div class="slider round"></div>
+            </label>
+        </div>
+    
+        <div class="option-row">
+            <label class="option-label">配色方案</label>
+            <div class="palette-list">
+              <div class="palette-row" title="热情活力色系" data-colors='["#FF6B6B", "#FFD93D", "#6BCB77", "#4D96FF", "#9D4EDD", "#FF9F1C"]'>
+                <span class="palette-name">热情活力</span>
+                <div class="color-squares">
+                  <div class="color-square" style="background:#FF6B6B;"></div>
+                  <div class="color-square" style="background:#FFD93D;"></div>
+                  <div class="color-square" style="background:#6BCB77;"></div>
+                  <div class="color-square" style="background:#4D96FF;"></div>
+                  <div class="color-square" style="background:#9D4EDD;"></div>
+                  <div class="color-square" style="background:#FF9F1C;"></div>
+                </div>
+              </div>
+          
+              <div class="palette-row" title="复古沉稳色系" data-colors='["#264653", "#2A9D8F", "#E9C46A", "#F4A261", "#E76F51", "#B5838D"]'>
+                <span class="palette-name">复古沉稳</span>
+                <div class="color-squares">
+                  <div class="color-square" style="background:#264653;"></div>
+                  <div class="color-square" style="background:#2A9D8F;"></div>
+                  <div class="color-square" style="background:#E9C46A;"></div>
+                  <div class="color-square" style="background:#F4A261;"></div>
+                  <div class="color-square" style="background:#E76F51;"></div>
+                  <div class="color-square" style="background:#B5838D;"></div>
+                </div>
+              </div>
+          
+              <div class="palette-row" title="对比强烈色系" data-colors='["#8ECAE6", "#219EBC", "#023047", "#FFB703", "#FB8500", "#F94144"]'>
+                <span class="palette-name">对比强烈</span>
+                <div class="color-squares">
+                  <div class="color-square" style="background:#8ECAE6;"></div>
+                  <div class="color-square" style="background:#219EBC;"></div>
+                  <div class="color-square" style="background:#023047;"></div>
+                  <div class="color-square" style="background:#FFB703;"></div>
+                  <div class="color-square" style="background:#FB8500;"></div>
+                  <div class="color-square" style="background:#F94144;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button id="auto-color-button" class="btn">自动分组染色</button>
+    
+    <div id="result-content"></div>
+</body>
+</html>

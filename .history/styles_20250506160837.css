@@ -307,43 +307,22 @@ input:checked + .slider:before {
     font-size: 16px;
 }
 
-.palette-list {
+.palette-container {
     display: flex;
-    flex-direction: column;
     gap: 12px;
     margin-top: 8px;
   }
-  .palette-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 12px;
-    border: 2px solid transparent;
+  .palette {
+    width: 40px;
+    height: 40px;
     border-radius: 6px;
     cursor: pointer;
-    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #ff6b6b, #9d4edd);
+    border: 2px solid #ccc;
+    transition: transform 0.2s ease;
   }
-  .palette-row:hover {
-    background-color: #f2f2f2;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
-  }
-  .palette-row.selected {
-    border-color: #007bff;
-    background-color: #e6f0ff;
-  }
-  .palette-name {
-    font-size: 14px;
-    font-weight: bold;
-    margin-right: 12px;
-  }
-  .color-squares {
-    display: flex;
-    gap: 6px;
-  }
-  .color-square {
-    width: 18px;
-    height: 18px;
-    border-radius: 4px;
-    border: 1px solid #ccc;
+  .palette:hover {
+    transform: scale(1.1);
+    border-color: #333;
   }
   

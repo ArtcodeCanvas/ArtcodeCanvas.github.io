@@ -80,11 +80,11 @@ window.loadSection = async function (url, queryContainerId, resultContainerId) {
 
 function initialVisual() {
     const toggleIds = document.getElementById('toggle-ids');
-    const paletteListContainer = document.querySelector('.palette-list');
+    const palettes = document.querySelectorAll('.palette-row');
     const cy = window.cy;
     let lastSelected = null;
   
-    // 绑定显示序号开关
+    // 序号切换功能
     toggleIds.addEventListener('change', (event) => {
       const isChecked = event.target.checked;
       cy.nodes().forEach(node => {
@@ -92,56 +92,27 @@ function initialVisual() {
         node.style('label', label);
       });
     });
+  
+    // 初始化时触发一次
     toggleIds.checked = false;
     toggleIds.dispatchEvent(new Event('change'));
   
-    // 动态加载配色方案
-    fetch('color_palettes.json')
-      .then(response => response.json())
-      .then(data => {
-        paletteListContainer.innerHTML = '';
+    // 配色方案选择
+    palettes.forEach(palette => {
+      palette.addEventListener('click', () => {
+        const colors = JSON.parse(palette.getAttribute('data-colors'));
   
-        data.forEach(palette => {
-          const row = document.createElement('div');
-          row.className = 'palette-row';
-          row.title = palette.name;
-          row.setAttribute('data-colors', JSON.stringify(palette.colors));
-  
-          const nameSpan = document.createElement('span');
-          nameSpan.className = 'palette-name';
-          nameSpan.textContent = palette.name;
-  
-          const squares = document.createElement('div');
-          squares.className = 'color-squares';
-  
-          palette.colors.forEach(color => {
-            const square = document.createElement('div');
-            square.className = 'color-square';
-            square.style.backgroundColor = color;
-            squares.appendChild(square);
-          });
-  
-          row.appendChild(nameSpan);
-          row.appendChild(squares);
-          paletteListContainer.appendChild(row);
-  
-          // 点击事件：渲染节点颜色
-          row.addEventListener('click', () => {
-            const colors = JSON.parse(row.getAttribute('data-colors'));
-            cy.nodes().forEach(node => {
-              const color = colors[Math.floor(Math.random() * colors.length)];
-              node.style('background-color', color);
-            });
-  
-            if (lastSelected) lastSelected.classList.remove('selected');
-            row.classList.add('selected');
-            lastSelected = row;
-          });
+        // 将每个节点染成随机颜色
+        cy.nodes().forEach(node => {
+          const color = colors[Math.floor(Math.random() * colors.length)];
+          node.style('background-color', color);
         });
-      })
-      .catch(err => {
-        console.error('配色方案加载失败：', err);
-        paletteListContainer.innerHTML = '<p style="color:red;">无法加载配色方案</p>';
+  
+        // 高亮选中项
+        if (lastSelected) lastSelected.classList.remove('selected');
+        palette.classList.add('selected');
+        lastSelected = palette;
       });
+    });
   }
   
