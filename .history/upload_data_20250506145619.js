@@ -22,21 +22,23 @@ function parseAndDrawGraph(content, cy, graphData) {
     cy.elements().remove();
     cy.add([...graphData.nodes, ...graphData.edges]);
 
+    // cy.layout({
+    //     name: 'breadthfirst',
+    //     directed: true,
+    //     spacingFactor: 1.5,
+    //     avoidOverlap: true
+    // }).run();
+
     cy.layout({
-        name: 'cose-bilkent',
-        animate: 'end',
-        randomize: true,
-        gravityRangeCompound: 2,
-        nodeRepulsion: 900000,
-        idealEdgeLength: 160,
-        edgeElasticity: 0.1,
-        nestingFactor: 0.8,
-        gravity: 1.2,
-        numIter: 2500,
-        tile: true,
+        name: 'cose',
+        animate: true,
+        nodeRepulsion: 20000,
+        idealEdgeLength: 150,
+        gravity: 0.1,
+        numIter: 2000,
         fit: true,
-        padding: 80
-    }).run();
+        padding: 50
+      }).run();      
 }
 
 window.parseAndDrawGraph = parseAndDrawGraph;

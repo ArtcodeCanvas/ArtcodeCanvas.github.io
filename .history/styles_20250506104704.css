@@ -177,7 +177,7 @@ input:focus {
 /* 按钮 */
 button, .btn, .custom-button {
     padding: 10px 15px;
-    margin: 3px;
+    margin: 5px;
     width: 100%;
     cursor: pointer;
     background: linear-gradient(135deg, #667eea, #764ba2);
@@ -192,28 +192,6 @@ button, .btn, .custom-button {
 button:hover, .btn:hover, .custom-button:hover {
     background: linear-gradient(135deg, #5a67d8, #6b46c1);
 }
-
-label.custom-button {
-    display: inline-block;
-    width: auto;
-    padding: 6px 14px;
-    font-size: 13px;
-    margin-top: 8px;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #b0b8ff, #bb9eff);
-    background-color: #f0f0f0;
-    color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-label.custom-button:hover {
-    background-color: #e0e0e0;
-    border-color: #999;
-}
-
 
 #file-name {
     font-size: 14px;

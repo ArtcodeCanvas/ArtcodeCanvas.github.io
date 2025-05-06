@@ -193,27 +193,9 @@ button:hover, .btn:hover, .custom-button:hover {
     background: linear-gradient(135deg, #5a67d8, #6b46c1);
 }
 
-label.custom-button {
-    display: inline-block;
-    width: auto;
-    padding: 6px 14px;
-    font-size: 13px;
-    margin-top: 8px;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #b0b8ff, #bb9eff);
-    background-color: #f0f0f0;
-    color: #ffffff;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
+.custom-button {
+    margin-bottom: 0px; /* 原来可能是 5px，调大一点 */
 }
-
-label.custom-button:hover {
-    background-color: #e0e0e0;
-    border-color: #999;
-}
-
 
 #file-name {
     font-size: 14px;

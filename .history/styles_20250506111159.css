@@ -199,10 +199,9 @@ label.custom-button {
     padding: 6px 14px;
     font-size: 13px;
     margin-top: 8px;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #b0b8ff, #bb9eff);
+    margin-bottom: 20px; /* 加大和下方按钮的间距 */
     background-color: #f0f0f0;
-    color: #ffffff;
+    color: #333;
     border: 1px solid #ccc;
     border-radius: 6px;
     cursor: pointer;

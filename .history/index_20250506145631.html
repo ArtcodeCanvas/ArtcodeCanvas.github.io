@@ -21,6 +21,7 @@
 
         <div id="controls">
             <div id="menu-bar">
+                <div class="menu-item" id="inform">概述</div>
                 <div class="menu-item" id="widest-path">信息扩散模拟
                     <!-- <div class="dropdown" id="info-path-dropdown">
                         <div class="dropdown-item" id="shortest-path">最短传播</div>
@@ -61,38 +62,84 @@
         const controls = document.getElementById('controls');
         const fileInput = document.getElementById('fileInput');
 
+        // const cy = cytoscape({
+        //     container: document.getElementById('cy'),
+        //     elements: [],
+        //     style: [
+        //         {
+        //             selector: 'node',
+        //             style: {
+        //                 'background-color': 'rgb(255, 205, 113)',
+        //                 'label': 'data(label)',
+        //                 'width': '30px',
+        //                 'height': '30px'
+        //             }
+        //         },
+        //         {
+        //             selector: 'edge',
+        //             style: {
+        //                 'width': 3,
+        //                 'line-color': '#ddd',
+        //                 'label': 'data(weight)',
+        //                 'target-arrow-shape': 'triangle',
+        //                 'target-arrow-color': '#ddd',
+        //                 'arrow-scale': 1.5
+        //             }
+        //         }
+        //     ],
+        //     layout: {
+        //         name: 'breadthfirst',
+        //         directed: true,
+        //         spacingFactor: 1.5,
+        //         avoidOverlap: true
+        //     }
+        // });
+        
         const cy = cytoscape({
-            container: document.getElementById('cy'),
-            elements: [],
-            style: [
-                {
-                    selector: 'node',
-                    style: {
-                        'background-color': 'rgb(255, 205, 113)',
-                        'label': 'data(label)',
-                        'width': '30px',
-                        'height': '30px'
-                    }
-                },
-                {
-                    selector: 'edge',
-                    style: {
-                        'width': 3,
-                        'line-color': '#ddd',
-                        'label': 'data(weight)',
-                        'target-arrow-shape': 'triangle',
-                        'target-arrow-color': '#ddd',
-                        'arrow-scale': 1.5
-                    }
-                }
-            ],
-            layout: {
-                name: 'breadthfirst',
-                directed: true,
-                spacingFactor: 1.5,
-                avoidOverlap: true
-            }
-        });
+    container: document.getElementById('cy'),
+    elements: [],
+    style: [
+  {
+    selector: 'node',
+    style: {
+      'background-color': 'rgb(255, 205, 113)',
+      'label': 'data(label)',
+      'width': '10px',
+      'height': '10px',
+      'font-size': '9px',
+      'text-valign': 'top',         // 文字上方显示
+      'text-halign': 'center',
+      'text-margin-y': -5           // 往上抬一点，防止贴边
+    }
+  },
+  {
+    selector: 'edge',
+    style: {
+      'width': 2,
+      'line-color': '#ccc',
+      'label': 'data(weight)',
+      'font-size': '8px',
+      'text-rotation': 'autorotate',
+      'text-margin-y': -4,
+      'target-arrow-shape': 'triangle',
+      'target-arrow-color': '#ccc',
+      'arrow-scale': 1.2
+    }
+  }
+],
+layout: {
+  name: 'cose',
+  animate: true,
+  nodeRepulsion: 20000,       // 强力推开，防止重叠
+  idealEdgeLength: 150,       // 边更长，拉开节点间距
+  gravity: 0.1,
+  numIter: 2000,
+  fit: true,
+  padding: 50
+}
+
+
+});
 
         const graphData = { nodes: [], edges: [] };
         window.graphData = graphData;
@@ -121,6 +168,9 @@
         // document.getElementById('shortest-path').addEventListener('click', () => {
         //     window.loadSection('functions/shortest_path.html', 'query-section', 'result-section');
         // });
+        document.getElementById('inform').addEventListener('click', () => {
+            loadSection('functions/inform.html', 'query-section', 'result-section');
+        });
         document.getElementById('widest-path').addEventListener('click', () => {
             loadSection('functions/widest_path.html', 'query-section', 'result-section');
         });
@@ -133,14 +183,13 @@
             });
         });
         document.getElementById('data-management').addEventListener('click', () => {
-
-    window.loadSection(
-        'functions/data_management.html', 
-        'query-section',
-        'result-section',
-        './functions/data_management.js' 
-    );
-});
+            window.loadSection(
+                'functions/data_management.html', 
+                'query-section',
+                'result-section',
+                'functions/data_management.js' 
+            );
+        });
 
     </script>
 </body>
