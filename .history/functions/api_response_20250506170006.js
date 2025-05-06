@@ -35,7 +35,7 @@ document.getElementById("submit-novel-btn").addEventListener("click", async () =
       ]
     }
     
-    ⚠️ 请确保只输出上述格式的 JSON 数据，直接输出完整的json数据，一定不要输出任何注释、解释或非 JSON 内容，也不要使用markdown语法。`;    
+    ⚠️ 请确保只输出上述格式的 JSON 数据，直接输出json数据，一定不要输出任何注释、解释或非 JSON 内容。`;    
 
 
     try {
