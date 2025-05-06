@@ -46,6 +46,177 @@ Cytoscape.js 是一个js编写的图论可视化库，提供了丰富的功能�
 ### 4. 可视化选项板块
 用户可通过该板块自定义图的样式，包括是否显示节点序号以及自定义节点颜色（支持多种颜色选项）。
 
+如下是可供用户选择的一些预设颜色组合：
+### 颜色模板展示
+
+ Pink Moon Palette
+<div style="background-color:#F5E2C2; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F6C6B1; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F9A8A0; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#B78B90; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#516160; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#B0B57E; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Still Hues
+<div style="background-color:#47757C; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#304A6C; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#1B3247; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#9C2A27; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#B2612D; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#D8CEB5; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Autumn Hues
+<div style="background-color:#E1C59D; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#CF8E4A; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#80543E; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#2C3562; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#455F9E; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#A9AB8E; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Mental Vacation
+<div style="background-color:#FCDAB9; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F8B3A4; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F78888; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#A26B7F; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#738089; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#A4B7B9; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Fresh Hues
+<div style="background-color:#EBB888; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E98973; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#BC4D5E; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#603D4F; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#495159; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#D1CC6F; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Still Life Hues
+<div style="background-color:#EBCCCB; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#A74759; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#545342; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#7A8463; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#C8B592; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#ECD7A9; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Arrange
+<div style="background-color:#C0E9EF; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#529AD6; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E14049; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F7C8CF; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#FCDEE0; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F7F4E6; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Sweet Tones
+<div style="background-color:#D6EFE1; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#A8C7B3; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#875767; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#D24556; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F6D6E0; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F6E7E5; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Serve
+<div style="background-color:#FCD8AC; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#FABB82; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F78B6A; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#C64A38; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#B2C3A6; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#CED8B7; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Dried Flora
+<div style="background-color:#B27C8C; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#79485A; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#432E3C; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#A09077; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E6C7A0; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#EDDFCD; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Imagination
+<div style="background-color:#F8E4DB; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#FCD6B3; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#95C5D4; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#B7DAE4; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#D3E6EC; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E6ECF2; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Wander
+<div style="background-color:#24786E; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#4D170D; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#782435; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#D62962; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F44476; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E59941; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ A Door Hues
+<div style="background-color:#B4D9ED; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#84B8EE; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#5787D8; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#48679D; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#9D7C80; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E0DAD6; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Perched
+<div style="background-color:#F4DFD5; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#EFBFB4; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E39991; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#D07D7C; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#644B44; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#C7CCA1; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Rose Palette
+<div style="background-color:#FBE9E3; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#FBCFCA; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#F4B9B9; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#8A8F75; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#7B5F52; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E6DCD8; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Matcha
+<div style="background-color:#F1F0D9; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E4EBC6; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#CDDAA8; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#ABC182; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#A39688; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#DBEACD; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Mineral Tones
+<div style="background-color:#E7E5EB; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#ECDBE3; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#ECC7CE; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#EAB6BC; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#B7676A; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E1B491; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Mood
+<div style="background-color:#B9ACDD; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#786B94; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#3F5E6F; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#67919E; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#93B8C2; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#B5D6DC; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Serve (Alt)
+<div style="background-color:#F6C3C8; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#93417A; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#4C2958; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#485386; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#969FC9; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#CDDAEB; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Autumn Tones
+<div style="background-color:#8AAAC0; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#78879F; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#35506F; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#94607A; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#BC839B; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E8A9B1; width: 30px;; height: 50px; display: inline-block;"></div>
+
+ Color Heaven
+<div style="background-color:#9AABD2; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#527099; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#3A4663; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#6A5D8A; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#B492BA; width: 30px;; height: 50px; display: inline-block;"></div>
+<div style="background-color:#E6D8E1; width: 30px;; height: 50px; display: inline-block;"></div>
+
 ### 5. 数据管理模块
 数据管理包括数据上传、数据校验、数据转换和数据应用，各具体功能如下：
 - 数据上传：用户上传符合要求的 CSV 文件；
@@ -74,12 +245,13 @@ Cytoscape.js 是一个js编写的图论可视化库，提供了丰富的功能�
 - 信息传播模拟
 我们采用`IC`模型，输入人名和传播次数，您将看到从起点人名开始，传播`n`轮后的情况模拟
 ![alt text](resources/image-6.png)
+您也可以点击播放按钮，观看接下来10个时间点内情况的变化
 - 关键人物
-- 度中心性：与其他节点连接最多的节点；
+     度中心性：与其他节点连接最多的节点；
 ![alt text](resources/image-7.png)
-- 介数中心性：基于`floyd`算法计算节点的桥梁作用；
+  介数中心性：基于`floyd`算法计算节点的桥梁作用；
 ![alt text](resources/86e6661da9933da44aa58ea2e13a052.png)
-- 割点：删除后会导致网络分裂的节点，基于`tarjan`算法。
+    割点：删除后会导致网络分裂的节点，基于`tarjan`算法。
 ![alt text](resources/f6f75cad4c1c4ec2ef4be8fa8d13819.png)
 这些结果可以通过颜色和标签的动态更新直观地展示出来。
 
