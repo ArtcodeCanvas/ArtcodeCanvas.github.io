@@ -62,49 +62,35 @@
       container: document.getElementById('cy'),
       elements: [],
       style: [
-        {
-          selector: 'node',
-          style: {
-            'background-color': '#f6b26b',
-            'label': 'data(label)',
-            'width': '20px',
-            'height': '20px',
-            'font-size': '14px',
-            'text-valign': 'top',
-            'text-halign': 'center',
-            'text-margin-y': -6
-          }
-        },
-        {
-          selector: 'edge',
-          style: {
-            'width': 2,
-            'line-color': '#ccc',
-            'label': 'data(weight)',
-            'font-size': '8px',
-            'text-rotation': 'autorotate',
-            'text-margin-y': -4,
-            'target-arrow-shape': 'triangle',
-            'target-arrow-color': '#ccc',
-            'arrow-scale': 1.2
-          }
-        }
-      ],
-      layout: {
-        name: 'cose-bilkent',
-        animate: 'end',
-        randomize: true,
-        gravityRangeCompound: 2,
-        nodeRepulsion: 900000,
-        idealEdgeLength: 160,
-        edgeElasticity: 0.1,
-        nestingFactor: 0.8,
-        gravity: 1.2,
-        numIter: 2500,
-        tile: true,
-        fit: true,
-        padding: 80
-      }
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#f6b26b',
+      'label': 'data(label)',
+      'width': '18px',
+      'height': '18px',
+      'font-size': '12px',
+      'text-valign': 'top',
+      'text-halign': 'center',
+      'text-margin-y': -8
+    }
+  },
+  {
+    selector: 'edge',
+    style: {
+      'width': 2,
+      'line-color': '#ccc',
+      'label': 'data(label)',  // 👈 关键修改：显示关系与权重
+      'font-size': '10px',
+      'text-rotation': 'autorotate',
+      'text-margin-y': -4,
+      'target-arrow-shape': 'triangle',
+      'target-arrow-color': '#ccc',
+      'arrow-scale': 1.2
+    }
+  }
+]
+
     });
 
     const graphData = { nodes: [], edges: [] };
