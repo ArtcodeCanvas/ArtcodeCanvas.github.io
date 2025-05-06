@@ -71,11 +71,9 @@ function CSVToJson(csvData) {
         throw new Error(`数据格式错误：第 ${rows.findIndex(r => r.length !== colCount)} 行列数不一致，应为 ${colCount} 列`);
     }
 
-    // 不需要 rowCount !== colCount - 1
-    if (rowCount !== colCount) {
-        throw new Error(`数据格式错误：应为 (n+1) × (n+1) 矩阵。当前行为 ${rowCount}，列为 ${colCount}`);
+    if (rowCount !== colCount - 1) {
+        throw new Error(`数据格式错误：应为 (n+1) × (n+1) 矩阵（第一列为姓名，第一行为标题）。当前行为 ${rowCount}，列为 ${colCount}`);
     }
-  
 
     const members = [];
     for (let i = 1; i < colCount; i++) {
@@ -115,6 +113,7 @@ function CSVToJson(csvData) {
 
     return { members, relationships };
 }
+
 
 // ========== 小说人物提取逻辑 ==========
 const novelDownloadBtn = document.getElementById('novel-download-json-btn');

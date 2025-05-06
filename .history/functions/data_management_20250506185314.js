@@ -63,7 +63,7 @@ applyBtn.addEventListener('click', () => {
 });
 
 function CSVToJson(csvData) {
-    const rows = csvData.trim().split(/\r?\n/).map(line => line.split(","));
+    const rows = csvData.trim().split("\n").map(r => r.split(","));
     const rowCount = rows.length;
     const colCount = rows[0].length;
 
@@ -71,45 +71,43 @@ function CSVToJson(csvData) {
         throw new Error(`数据格式错误：第 ${rows.findIndex(r => r.length !== colCount)} 行列数不一致，应为 ${colCount} 列`);
     }
 
-    // 不需要 rowCount !== colCount - 1
-    if (rowCount !== colCount) {
-        throw new Error(`数据格式错误：应为 (n+1) × (n+1) 矩阵。当前行为 ${rowCount}，列为 ${colCount}`);
+    if (rowCount !== colCount - 1) {
+        throw new Error(`数据格式错误：应为 (n+1)x(n+1) 矩阵。当前行为 ${rowCount}，列为 ${colCount}，应满足 行数 = 列数 - 1`);
     }
-  
 
     const members = [];
     for (let i = 1; i < colCount; i++) {
-        const name = rows[i - 1][0].trim();
-        members.push({ id: i.toString(), name });
+        members.push({ id: i.toString(), name: rows[i - 1][0].trim() });
     }
 
     const relationships = [];
-    const addedPairs = new Set();
+    const addedEdges = new Set();
 
     for (let i = 1; i < rowCount; i++) {
         for (let j = 1; j < colCount; j++) {
             const cell = rows[i][j].trim();
             if (!cell || cell === "0") continue;
 
-            const [weightStr, relation] = cell.split("/");
+            const [weightStr, relation] = cell.split(/[,，]/); // 支持中英文逗号
             const weight = parseInt(weightStr, 10);
-            const rel = (relation || "未知").trim();
 
             if (isNaN(weight)) {
-                console.warn(`忽略无效权值: ${i},${j} = ${cell}`);
+                console.warn(`忽略无效关系：${cell} 在 ${i},${j}`);
                 continue;
             }
 
-            const edgeId = `${Math.min(i, j)}-${Math.max(i, j)}`;
-            if (addedPairs.has(edgeId)) continue;
+            const from = i.toString();
+            const to = j.toString();
+            const key = `${Math.min(i, j)}-${Math.max(i, j)}`;
+            if (addedEdges.has(key)) continue;
 
             relationships.push({
-                source: i.toString(),
-                target: j.toString(),
+                source: from,
+                target: to,
                 weight: weight,
-                relation: rel
+                relation: (relation || "未知").trim()
             });
-            addedPairs.add(edgeId);
+            addedEdges.add(key);
         }
     }
 

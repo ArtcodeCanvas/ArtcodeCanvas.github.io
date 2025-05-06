@@ -63,40 +63,34 @@ applyBtn.addEventListener('click', () => {
 });
 
 function CSVToJson(csvData) {
-    const rows = csvData.trim().split(/\r?\n/).map(line => line.split(","));
+    const rows = csvData.trim().split("\n").map(row => row.split(","));
     const rowCount = rows.length;
-    const colCount = rows[0].length;
+    const colCount = rows[0].length;      // 包含首列名
 
-    if (rows.some(row => row.length !== colCount)) {
-        throw new Error(`数据格式错误：第 ${rows.findIndex(r => r.length !== colCount)} 行列数不一致，应为 ${colCount} 列`);
+    if (rowCount + 1 !== colCount) {
+    throw new Error(`数据格式错误：行数 (${rowCount}) + 1 应该等于列数 (${colCount})，请检查是否为 (n+1)*(n+1) 矩阵`);
     }
-
-    // 不需要 rowCount !== colCount - 1
-    if (rowCount !== colCount) {
-        throw new Error(`数据格式错误：应为 (n+1) × (n+1) 矩阵。当前行为 ${rowCount}，列为 ${colCount}`);
-    }
-  
-
+    
     const members = [];
-    for (let i = 1; i < colCount; i++) {
-        const name = rows[i - 1][0].trim();
-        members.push({ id: i.toString(), name });
+    for (let i = 1; i < size; i++) {
+        members.push({ id: i.toString(), name: rows[i][0].trim() });
     }
 
     const relationships = [];
     const addedPairs = new Set();
 
-    for (let i = 1; i < rowCount; i++) {
-        for (let j = 1; j < colCount; j++) {
+    for (let i = 1; i < size; i++) {
+        for (let j = 1; j < size; j++) {
+            if (i === j) continue;
+
             const cell = rows[i][j].trim();
             if (!cell || cell === "0") continue;
 
-            const [weightStr, relation] = cell.split("/");
+            const [weightStr, relation] = cell.split(/[,，]/);  // 支持中英文逗号
             const weight = parseInt(weightStr, 10);
-            const rel = (relation || "未知").trim();
 
-            if (isNaN(weight)) {
-                console.warn(`忽略无效权值: ${i},${j} = ${cell}`);
+            if (isNaN(weight) || weight < 1 || weight > 5) {
+                console.warn(`忽略无效权值: ${i}-${j} = ${cell}`);
                 continue;
             }
 
@@ -107,7 +101,7 @@ function CSVToJson(csvData) {
                 source: i.toString(),
                 target: j.toString(),
                 weight: weight,
-                relation: rel
+                relation: (relation || "未知").trim()
             });
             addedPairs.add(edgeId);
         }
@@ -116,7 +110,7 @@ function CSVToJson(csvData) {
     return { members, relationships };
 }
 
-// ========== 小说人物提取逻辑 ==========
+// =============== 小说人物提取相关功能 ===============
 const novelDownloadBtn = document.getElementById('novel-download-json-btn');
 const novelApplyBtn = document.getElementById('novel-apply-json-btn');
 
