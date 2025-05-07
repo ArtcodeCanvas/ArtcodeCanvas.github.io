@@ -1,19 +1,240 @@
 {
-    "members": [
-        {"id": "1", "name": "Alice"},
-        {"id": "2", "name": "Bob"},
-        {"id": "3", "name": "Charlie"},
-        {"id": "4", "name": "Diana"},
-        {"id": "5", "name": "Eve"},
-        {"id": "6", "name": "Frank"}
-    ],
-    "relationships": [
-        {"source": "1", "target": "2", "weight": 3},
-        {"source": "1", "target": "3", "weight": 2},
-        {"source": "1", "target": "4", "weight": 4},
-        {"source": "2", "target": "5", "weight": 5},
-        {"source": "3", "target": "5", "weight": 5},
-        {"source": "4", "target": "5", "weight": 5},
-        {"source": "5", "target": "6", "weight": 1}
-    ]
+  "members": [
+    {
+      "id": "1",
+      "name": "贾宝玉"
+    },
+    {
+      "id": "2",
+      "name": "林黛玉"
+    },
+    {
+      "id": "3",
+      "name": "薛宝钗"
+    },
+    {
+      "id": "4",
+      "name": "王熙凤"
+    },
+    {
+      "id": "5",
+      "name": "贾母"
+    },
+    {
+      "id": "6",
+      "name": "贾政"
+    },
+    {
+      "id": "7",
+      "name": "贾琏"
+    },
+    {
+      "id": "8",
+      "name": "贾元春"
+    },
+    {
+      "id": "9",
+      "name": "史湘云"
+    },
+    {
+      "id": "10",
+      "name": "袭人"
+    },
+    {
+      "id": "11",
+      "name": "贾环"
+    },
+    {
+      "id": "12",
+      "name": "贾珍"
+    },
+    {
+      "id": "13",
+      "name": "贾蓉"
+    },
+    {
+      "id": "14",
+      "name": "贾芹"
+    },
+    {
+      "id": "15",
+      "name": "贾兰"
+    }
+  ],
+  "relationships": [
+    {
+      "source": "1",
+      "target": "2",
+      "weight": 5,
+      "relation": "恋人"
+    },
+    {
+      "source": "1",
+      "target": "3",
+      "weight": 4,
+      "relation": "朋友"
+    },
+    {
+      "source": "1",
+      "target": "4",
+      "weight": 3,
+      "relation": "同事"
+    },
+    {
+      "source": "1",
+      "target": "5",
+      "weight": 5,
+      "relation": "孙子"
+    },
+    {
+      "source": "1",
+      "target": "6",
+      "weight": 2,
+      "relation": "表兄"
+    },
+    {
+      "source": "1",
+      "target": "7",
+      "weight": 4,
+      "relation": "妻"
+    },
+    {
+      "source": "1",
+      "target": "8",
+      "weight": 2,
+      "relation": "姑表姐"
+    },
+    {
+      "source": "2",
+      "target": "5",
+      "weight": 3,
+      "relation": "外孙女"
+    },
+    {
+      "source": "3",
+      "target": "5",
+      "weight": 3,
+      "relation": "儿媳"
+    },
+    {
+      "source": "4",
+      "target": "5",
+      "weight": 4,
+      "relation": "下属"
+    },
+    {
+      "source": "5",
+      "target": "6",
+      "weight": 5,
+      "relation": "儿"
+    },
+    {
+      "source": "5",
+      "target": "7",
+      "weight": 5,
+      "relation": "女"
+    },
+    {
+      "source": "5",
+      "target": "9",
+      "weight": 3,
+      "relation": "侄女"
+    },
+    {
+      "source": "5",
+      "target": "10",
+      "weight": 4,
+      "relation": "侍女"
+    },
+    {
+      "source": "5",
+      "target": "12",
+      "weight": 3,
+      "relation": "女婿"
+    },
+    {
+      "source": "6",
+      "target": "1",
+      "weight": 5,
+      "relation": "祖父"
+    },
+    {
+      "source": "7",
+      "target": "1",
+      "weight": 5,
+      "relation": "父亲"
+    },
+    {
+      "source": "7",
+      "target": "5",
+      "weight": 5,
+      "relation": "妻子"
+    },
+    {
+      "source": "8",
+      "target": "5",
+      "weight": 5,
+      "relation": "大姑妈"
+    },
+    {
+      "source": "9",
+      "target": "5",
+      "weight": 3,
+      "relation": "表妹"
+    },
+    {
+      "source": "9",
+      "target": "1",
+      "weight": 4,
+      "relation": "好友"
+    },
+    {
+      "source": "10",
+      "target": "1",
+      "weight": 4,
+      "relation": "侍妾"
+    },
+    {
+      "source": "11",
+      "target": "5",
+      "weight": 3,
+      "relation": "子"
+    },
+    {
+      "source": "12",
+      "target": "5",
+      "weight": 5,
+      "relation": "父"
+    },
+    {
+      "source": "12",
+      "target": "13",
+      "weight": 3,
+      "relation": "岳父"
+    },
+    {
+      "source": "13",
+      "target": "5",
+      "weight": 4,
+      "relation": "妻"
+    },
+    {
+      "source": "13",
+      "target": "14",
+      "weight": 3,
+      "relation": "长子"
+    },
+    {
+      "source": "14",
+      "target": "13",
+      "weight": 5,
+      "relation": "父亲"
+    },
+    {
+      "source": "14",
+      "target": "15",
+      "weight": 3,
+      "relation": "儿子"
+    }
+  ]
 }
