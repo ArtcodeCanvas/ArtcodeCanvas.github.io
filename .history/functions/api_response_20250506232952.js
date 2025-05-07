@@ -65,8 +65,10 @@ document.getElementById("submit-novel-btn").addEventListener("click", async () =
         const parsed = JSON.parse(content);
         console.log("提取结果：", parsed);
 
+        // 保存结果供其他按钮使用
         window.novelExtractedData = parsed;
 
+        // 显示在页面上
         output.textContent = JSON.stringify(parsed, null, 2);
         output.style.display = "block";
 
