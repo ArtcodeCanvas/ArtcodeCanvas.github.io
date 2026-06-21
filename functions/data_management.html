@@ -4,78 +4,74 @@
     <meta charset="UTF-8">
     <title>数据管理</title>
     <link rel="stylesheet" href="styles.css" />
-    <style>
-        .module-box {
-            background: #ffffffee;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            backdrop-filter: blur(6px);
-            margin-top: 20px;
-        }
-    </style>
 </head>
 <body>
     <!-- query-content: 包含说明和数据管理模块 -->
-    <div id="query-content" style="max-width: 1000px; margin: 0 auto; padding-bottom: 40px;">
-        <h3 style="color: blue;">【CSV文件样例】</h3>
+    <div id="query-content" class="data-management-page">
+        <h3>CSV 文件样例</h3>
         <p>请根据以下格式准备您的CSV文件进行上传：</p>
 
-        <table>
-            <caption>示例：成员间的关系矩阵</caption>
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>Alice</th>
-                    <th>Bob</th>
-                    <th>Charlie</th>
-                    <th>Diana</th>
-                    <th>Eve</th>
-                    <th>Frank</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><th>Alice</th><td>0</td><td>3/colleague</td><td>2/classmate</td><td>4/sibling</td><td>0</td><td>0</td></tr>
-                <tr><th>Bob</th><td>3/colleague</td><td>0</td><td>0</td><td>0</td><td>5/friend</td><td>0</td></tr>
-                <tr><th>Charlie</th><td>2/classmate</td><td>0</td><td>0</td><td>0</td><td>5/friend</td><td>0</td></tr>
-                <tr><th>Diana</th><td>4/sibling</td><td>0</td><td>0</td><td>0</td><td>5/friend</td><td>0</td></tr>
-                <tr><th>Eve</th><td>0</td><td>5/friend</td><td>5/friend</td><td>5/friend</td><td>0</td><td>1/neighbor</td></tr>
-                <tr><th>Frank</th><td>0</td><td>0</td><td>0</td><td>0</td><td>1/neighbor</td><td>0</td></tr>
-            </tbody>
-        </table>        
+        <div class="table-wrap">
+            <table>
+                <caption>示例：成员间的关系矩阵</caption>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Alice</th>
+                        <th>Bob</th>
+                        <th>Charlie</th>
+                        <th>Diana</th>
+                        <th>Eve</th>
+                        <th>Frank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th>Alice</th><td>0</td><td>3/colleague</td><td>2/classmate</td><td>4/sibling</td><td>0</td><td>0</td></tr>
+                    <tr><th>Bob</th><td>3/colleague</td><td>0</td><td>0</td><td>0</td><td>5/friend</td><td>0</td></tr>
+                    <tr><th>Charlie</th><td>2/classmate</td><td>0</td><td>0</td><td>0</td><td>5/friend</td><td>0</td></tr>
+                    <tr><th>Diana</th><td>4/sibling</td><td>0</td><td>0</td><td>0</td><td>5/friend</td><td>0</td></tr>
+                    <tr><th>Eve</th><td>0</td><td>5/friend</td><td>5/friend</td><td>5/friend</td><td>0</td><td>1/neighbor</td></tr>
+                    <tr><th>Frank</th><td>0</td><td>0</td><td>0</td><td>0</td><td>1/neighbor</td><td>0</td></tr>
+                </tbody>
+            </table>
+        </div>
 
-        <p style="color: rgb(100, 118, 255);">此表格显示的是各个成员之间的关系矩阵，其中数字表示两个人之间的权重（例如，Alice和Bob之间的关系权重为3）。上传时，请确保您的CSV文件遵循类似的格式。</p>
-        <p style="color: rgb(100, 118, 255);">一旦选择了CSV文件，您可以点击“下载 JSON 数据”按钮将数据转化为JSON格式，或者点击“应用数据”按钮将其应用到图数据中进行处理。</p>
+        <p class="hint-text">此表格显示的是各个成员之间的关系矩阵，其中数字表示两个人之间的权重（例如，Alice 和 Bob 之间的关系权重为 3）。上传时，请确保您的 CSV 文件遵循类似的格式。</p>
+        <p class="hint-text">一旦选择了 CSV 文件，您可以点击“下载 JSON 数据”按钮将数据转化为 JSON 格式，或者点击“应用数据”按钮将其应用到图数据中进行处理。</p>
 
         <div class="module-box">
             <h3>数据管理</h3>
             <p>上传数据，格式化为符合要求的 JSON 格式。</p>
 
-            <label for="upload-data" class="custom-button">选择文件</label>
-            <input type="file" id="upload-data" accept=".csv" style="display: none;">
-            <span id="file-name">未选择文件</span>
+            <div class="file-row">
+                <label for="upload-data" class="custom-button">选择文件</label>
+                <input type="file" id="upload-data" accept=".csv">
+                <span id="file-name">未选择文件</span>
+            </div>
 
-            <button id="download-json-btn" class="btn">下载 JSON 数据</button>
-            <button id="apply-json-btn" class="btn">应用数据</button>
+            <div class="button-row">
+                <button id="download-json-btn" class="btn">下载 JSON 数据</button>
+                <button id="apply-json-btn" class="btn">应用数据</button>
+            </div>
             <p id="upload-status">状态：等待上传数据</p>
         </div>
     </div>
 
     <!-- result-content: 小说人物关系提取模块 -->
-    <div id="result-content" style="max-width: 1000px; margin: 0 auto; padding-bottom: 80px;">
+    <div id="result-content" class="data-management-page">
         <div class="module-box">
             <h3>小说人物关系提取</h3>
             <p>请输入一本小说的名称，系统将返回该小说中的主要人物关系图。</p>
-            <input type="text" id="novel-title-input" placeholder="例如：《红楼梦》" style="width: 100%; padding: 6px;">
+            <input type="text" id="novel-title-input" placeholder="例如：《红楼梦》">
             <button id="submit-novel-btn" class="btn">提交</button>
             <p id="novel-status">状态：等待输入小说名称</p>
 
-            <div id="novel-action-buttons" style="margin-top: 10px;">
+            <div id="novel-action-buttons" class="button-row">
                 <button id="novel-download-json-btn" class="btn">下载 JSON 数据</button>
                 <button id="novel-apply-json-btn" class="btn">应用数据</button>
             </div>
 
-            <pre id="json-output" style="white-space: pre-wrap; background: #f7f7f7; padding: 10px; margin-top: 20px; display: none;"></pre>
+            <pre id="json-output"></pre>
         </div>
     </div>
 

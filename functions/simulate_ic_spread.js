@@ -38,7 +38,7 @@
             });
 
             activeNodes = [...newActive];
-            lastActiveNodes =[newActive];
+            lastActiveNodes = [...newActive];
             newActive.length = 0;
 
             updateIC(activatedNodes, lastActiveNodes, startId);
